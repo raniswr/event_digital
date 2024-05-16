@@ -11,6 +11,9 @@ import '../modules/loginPage/views/login_page_view.dart';
 import '../modules/profilePage/bindings/profile_page_binding.dart';
 import '../modules/profilePage/views/profile_page_view.dart';
 
+import '../modules/registerPage/bindings/register_page_binding.dart';
+import '../modules/registerPage/views/register_page_view.dart';
+
 part 'app_routes.dart';
 
 class AppPages {
@@ -43,6 +46,11 @@ class AppPages {
       name: _Paths.LOGIN_PAGE,
       page: () => const LoginPageView(),
       binding: LoginPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.REGISTER_PAGE,
+      page: () => const RegisterPageView(),
+      binding: RegisterPageBinding(),
     ),
   ];
 }

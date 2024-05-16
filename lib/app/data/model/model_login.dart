@@ -1,10 +1,10 @@
-class ModelGetAllProduct {
+class ModelLogin {
   String? jwt;
   User? user;
 
-  ModelGetAllProduct({this.jwt, this.user});
+  ModelLogin({this.jwt, this.user});
 
-  ModelGetAllProduct.fromJson(Map<String, dynamic> json) {
+  ModelLogin.fromJson(Map<String, dynamic> json) {
     jwt = json['jwt'];
     user = json['user'] != null ? new User.fromJson(json['user']) : null;
   }
@@ -28,8 +28,11 @@ class User {
   bool? blocked;
   String? createdAt;
   String? updatedAt;
+  String? name;
+  String? address;
+  String? phoneNo;
 
-  User({this.id, this.username, this.email, this.provider, this.confirmed, this.blocked, this.createdAt, this.updatedAt});
+  User({this.id, this.username, this.email, this.provider, this.confirmed, this.blocked, this.createdAt, this.updatedAt, this.name, this.address, this.phoneNo});
 
   User.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -40,6 +43,9 @@ class User {
     blocked = json['blocked'];
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
+    name = json['name'];
+    address = json['address'];
+    phoneNo = json['phone_no'];
   }
 
   Map<String, dynamic> toJson() {
@@ -52,6 +58,9 @@ class User {
     data['blocked'] = this.blocked;
     data['createdAt'] = this.createdAt;
     data['updatedAt'] = this.updatedAt;
+    data['name'] = this.name;
+    data['address'] = this.address;
+    data['phone_no'] = this.phoneNo;
     return data;
   }
 }

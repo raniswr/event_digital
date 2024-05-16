@@ -16,37 +16,42 @@ class IntroPageView extends GetView<IntroPageController> {
       backgroundColor: Colors.grey[50],
       body: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SvgPicture.asset(
+              Assets.icOnboarding,
+              height: 250,
+            ).marginOnly(top: 50),
             // big logo
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 100.0,
-                right: 100.0,
-                top: 120,
-                bottom: 20,
-              ),
-              child: SvgPicture.asset(
-                Assets.icOnboarding,
-              ),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.only(
+            //     left: 100.0,
+            //     right: 100.0,
+            //     top: 120,
+            //     bottom: 20,
+            //   ),
+            //   child: SvgPicture.asset(
+            //     Assets.icOnboarding,
+            //   ),
+            // ),
 
             const Padding(
               padding: const EdgeInsets.all(28.0),
               child: Text(
-                'Temukan Eventmu Sekarang!',
+                'Telusuri Acaramu Sekarang dan Temukan Pengalaman Tak Terlupakan!',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),
 
             Text(
-              'Pesan Sekarang',
+              'Pesan Sekarang!',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.grey[700],
               ),
-            ),
+            ).marginOnly(bottom: 20),
 
             GestureDetector(
               onTap: () => Get.toNamed(Routes.LOGIN_PAGE),
@@ -54,7 +59,7 @@ class IntroPageView extends GetView<IntroPageController> {
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
-                  color: const Color.fromARGB(255, 112, 91, 222),
+                  color: Colors.black,
                 ),
                 child: const Text(
                   "Get Started",
