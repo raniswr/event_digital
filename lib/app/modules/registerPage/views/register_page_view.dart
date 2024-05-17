@@ -17,102 +17,104 @@ class RegisterPageView extends GetView<RegisterPageController> {
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(height: 30),
+            child: GetBuilder<RegisterPageController>(builder: (controller) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 30),
 
-                // username textfield
-                MyTextField(
-                  controller: controller.usernameController,
-                  hintText: 'Username',
-                  obscureText: false,
-                ),
+                  // username textfield
+                  MyTextField(
+                    controller: controller.usernameController,
+                    hintText: 'Username',
+                    obscureText: false,
+                  ),
 
-                const SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
-                // password textfield
-                MyTextField(
-                  controller: controller.passwordController,
-                  hintText: 'Email',
-                  obscureText: false,
-                ),
+                  // password textfield
+                  MyTextField(
+                    controller: controller.emailController,
+                    hintText: 'Email',
+                    obscureText: false,
+                  ),
 
-                const SizedBox(height: 10),
-                MyTextField(
-                  controller: controller.passwordController,
-                  hintText: 'Alamat',
-                  obscureText: false,
-                ),
-                const SizedBox(height: 10),
-                MyTextField(
-                  controller: controller.passwordController,
-                  hintText: 'No Telepon',
-                  obscureText: false,
-                ),
+                  const SizedBox(height: 10),
+                  MyTextField(
+                    controller: controller.alamatController,
+                    hintText: 'Alamat',
+                    obscureText: false,
+                  ),
+                  const SizedBox(height: 10),
+                  MyTextField(
+                    controller: controller.phoneController,
+                    hintText: 'No Telepon',
+                    obscureText: false,
+                  ),
 
-                const SizedBox(height: 10),
-                MyTextField(
-                  controller: controller.passwordController,
-                  hintText: 'Password',
-                  obscureText: true,
-                ),
+                  const SizedBox(height: 10),
+                  MyTextField(
+                    controller: controller.passwordController,
+                    hintText: 'Password',
+                    obscureText: true,
+                  ),
 
-                const SizedBox(height: 10),
+                  const SizedBox(height: 10),
 
-                // forgot password?
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                  // forgot password?
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          'Forgot Password?',
+                          style: TextStyle(color: Colors.grey[600]),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  const SizedBox(height: 25),
+
+                  // sign in button
+                  MyButton(
+                    onTap: () {
+                      controller.register(context);
+                    },
+                  ),
+
+                  const SizedBox(height: 50),
+
+                  // or continue with
+
+                  const SizedBox(height: 50),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Forgot Password?',
-                        style: TextStyle(color: Colors.grey[600]),
+                        'Sudah punya akun?',
+                        style: TextStyle(color: Colors.grey[700]),
                       ),
-                    ],
-                  ),
-                ),
-
-                const SizedBox(height: 25),
-
-                // sign in button
-                MyButton(
-                  onTap: () {
-                    Get.toNamed(Routes.HOME);
-                  },
-                ),
-
-                const SizedBox(height: 50),
-
-                // or continue with
-
-                const SizedBox(height: 50),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Sudah punya akun?',
-                      style: TextStyle(color: Colors.grey[700]),
-                    ),
-                    const SizedBox(width: 4),
-                    GestureDetector(
-                      onTap: () {
-                        Get.toNamed(Routes.LOGIN_PAGE);
-                      },
-                      child: const Text(
-                        'Login',
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
+                      const SizedBox(width: 4),
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed(Routes.LOGIN_PAGE);
+                        },
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                )
-              ],
-            ),
+                    ],
+                  )
+                ],
+              );
+            }),
           ),
         ),
       ),

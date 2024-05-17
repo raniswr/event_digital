@@ -155,7 +155,7 @@ class AppStyle {
           ),
           borderRadius: BorderRadius.circular(15),
         ),
-        fillColor: AppColors.inputColor,
+        fillColor: AppColors.gray.withOpacity(0.1),
         filled: true,
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide.none,
@@ -188,7 +188,7 @@ class AppStyle {
           ),
           borderRadius: BorderRadius.circular(15),
         ),
-        fillColor: AppColors.grayBottomNav,
+        fillColor: AppColors.gray,
         filled: true,
         enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(
@@ -210,7 +210,7 @@ class AppStyle {
     double? height,
   }) {
     return ElevatedButton.styleFrom(
-      backgroundColor: backgroundColor ?? AppColors.primary,
+      backgroundColor: backgroundColor ?? AppColors.blue,
       // onPrimary: textColor ?? Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(borderRadius ?? 8.0),

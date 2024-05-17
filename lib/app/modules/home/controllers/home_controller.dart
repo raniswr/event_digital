@@ -1,6 +1,11 @@
+import 'package:event_digital/app/data/model/model_category.dart';
+import 'package:event_digital/app/data/model/model_product.dart';
+import 'package:event_digital/app/data/services/api_services.dart';
+import 'package:event_digital/app/data/services/user_services.dart';
 import 'package:event_digital/core/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 class HomeController extends GetxController {
   final List _shopItems = const [
@@ -24,6 +29,15 @@ class HomeController extends GetxController {
     update();
   }
 
+  String formatPrice(num productPrice) {
+    final formatter = NumberFormat.currency(
+      symbol: 'Rp',
+      decimalDigits: 0,
+      locale: 'id_ID',
+    );
+    return formatter.format(productPrice);
+  }
+
   // remove item from cart
   void removeItemFromCart(int index) {
     _cartItems.removeAt(index);
@@ -37,5 +51,33 @@ class HomeController extends GetxController {
       totalPrice += double.parse(cartItems[i][1]);
     }
     return totalPrice.toStringAsFixed(2);
+  }
+
+  ModelProduct? allProudct;
+  getAllProduct() async {
+    var data = await ApiServices().getAllProduct();
+    if (data != null) {
+      allProudct = data;
+      update();
+    }
+  }
+
+  ModelCategory? allCategory;
+  getCategory() async {
+    var data = await ApiServices().getCategory();
+    if (data != null) {
+      allCategory = data;
+      update();
+    }
+  }
+
+  @override
+  void onReady() async {
+    getAllProduct();
+    getCategory();
+    var dataLogin = await UserService.find.getLocalUser();
+
+    print('hai ${dataLogin?.isLogin}');
+    super.onReady();
   }
 }

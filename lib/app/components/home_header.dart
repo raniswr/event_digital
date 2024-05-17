@@ -17,10 +17,6 @@ class HomeHeader extends StatelessWidget {
         children: [
           const Expanded(child: SearchField()),
           const SizedBox(width: 16),
-          IconBtnWithCounter(
-            svgSrc: "assets/icons/Cart Icon.svg",
-            press: () {},
-          ),
         ],
       ),
     );

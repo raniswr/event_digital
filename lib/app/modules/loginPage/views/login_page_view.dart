@@ -2,6 +2,7 @@ import 'package:event_digital/app/components/my_button.dart';
 import 'package:event_digital/app/components/my_textfield.dart';
 import 'package:event_digital/app/components/square_tile.dart';
 import 'package:event_digital/app/routes/app_pages.dart';
+import 'package:event_digital/core/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -23,15 +24,12 @@ class LoginPageView extends GetView<LoginPageController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: 50),
-
-                  // logo
                   const Icon(
                     Icons.lock,
+                    color: Color.fromARGB(214, 44, 98, 224),
                     size: 100,
                   ),
-
                   const SizedBox(height: 50),
-
                   Text(
                     'Selamat Datang Kembali, Masuklah dan Mulailah Pecarianmu!',
                     textAlign: TextAlign.center,
@@ -40,7 +38,6 @@ class LoginPageView extends GetView<LoginPageController> {
                       fontSize: 16,
                     ),
                   ),
-
                   const SizedBox(height: 25),
 
                   // username textfield
@@ -142,7 +139,7 @@ class LoginPageView extends GetView<LoginPageController> {
                           Get.toNamed(Routes.REGISTER_PAGE);
                         },
                         child: const Text(
-                          'Daftar Sekarangs',
+                          'Daftar Sekarang',
                           style: TextStyle(
                             color: Colors.blue,
                             fontWeight: FontWeight.bold,

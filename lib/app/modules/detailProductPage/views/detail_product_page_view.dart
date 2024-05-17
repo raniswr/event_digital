@@ -1,6 +1,8 @@
+import 'package:event_digital/app/routes/app_pages.dart';
 import 'package:event_digital/core/assets.dart';
 import 'package:event_digital/core/colors.dart';
 import 'package:event_digital/core/style.dart';
+import 'package:event_digital/utils/sqlite_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -18,16 +20,8 @@ class DetailProductPageView extends GetView<DetailProductPageController> {
         // backgroundColor: AppColors.secondary,
         title: Text(
           'Detail Produk',
-          // style: AppStyle.styleTextBody16(fontWeight: FontWeight.bold),
+          style: AppStyle.styleTextBody16(fontWeight: FontWeight.bold),
         ),
-        // leading: IconButton(
-        //   icon: SvgPicture.asset(
-        //     Assets.icBack,
-        //   ),
-        //   onPressed: () {
-        //     Get.back();
-        //   },
-        // ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: const AnimatedBottomBar(),
@@ -36,12 +30,16 @@ class DetailProductPageView extends GetView<DetailProductPageController> {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(
-                "assets/images/ps4_console_white_1.png",
-                width: double.infinity,
-                height: 320,
-                fit: BoxFit.cover,
-              ).marginSymmetric(vertical: 20),
+              controller.image != null
+                  ? Image.network(
+                      // productImage,
+                      'http://localhost:1337${controller.image}',
+
+                      width: double.infinity,
+                      height: 180,
+                      fit: BoxFit.cover,
+                    ).marginOnly(bottom: 10)
+                  : SizedBox.shrink(),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -50,124 +48,34 @@ class DetailProductPageView extends GetView<DetailProductPageController> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'halo',
-                        // style: AppStyle.styleTextBody20(fontWeight: FontWeight.w700, colorText: AppColors.yellow),
+                        controller.detailProduct?.data?.attributes?.name ?? '',
+                        style: Theme.of(context).textTheme.displaySmall,
                       ),
-                      Text(
-                        'aha',
-                        // style: AppStyle.styleTextBody16(fontWeight: FontWeight.w400, colorText: AppColors.greyText),
-                      )
                     ],
                   ),
                   Text(
-                    'Rp.',
-                    // style: AppStyle.styleTextBody24(fontWeight: FontWeight.w700, colorText: AppColors.greyText),
+                    controller.formatPrice(controller.detailProduct?.data?.attributes?.price ?? 0),
+                    style: AppStyle.styleTextBody16(fontWeight: FontWeight.w700),
                   ),
                 ],
               ).marginSymmetric(horizontal: 20),
               const Divider(
                 thickness: 1,
                 // color: AppColors.dividerColor,
-              ).marginSymmetric(horizontal: 20, vertical: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Belanja di Marketplace',
-                    // style: AppStyle.styleTextBody14(fontWeight: FontWeight.w400, colorText: AppColors.greyText),
-                  ),
-                  Row(
-                    children: [
-                      GestureDetector(
-                        // onTap: () async {
-                        //   if (await canLaunch(controller.detailProduct?.data?.shopee ?? '')) {
-                        //     await launch(controller.detailProduct?.data?.shopee ?? '');
-                        //   } else {
-                        //     await launch('https://shopee.co.id/glamori_clinic');
-                        //   }
-                        // },
-                        child: Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            // color: AppColors.yellowLight,
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                              width: 1,
-                              // color: AppColors.yellow,
-                            ),
-                            boxShadow: const [
-                              BoxShadow(
-                                // color: AppColors.grey,
-                                spreadRadius: 0.3,
-                                blurRadius: 0.7,
-                                offset: Offset(0, 0.4),
-                              ),
-                            ],
-                          ),
-                          child: Image.asset(
-                            "assets/images/ps4_console_white_1.png",
-                            fit: BoxFit.cover,
-                          ).marginAll(8),
-                        ).marginOnly(right: 10),
-                      ),
-                      GestureDetector(
-                        onTap: () async {},
-                        child: Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            // color: AppColors.yellowLight,
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                              width: 1,
-                              // color: AppColors.yellow,
-                            ),
-                            boxShadow: const [
-                              BoxShadow(
-                                // color: AppColors.grey,
-                                spreadRadius: 0.3,
-                                blurRadius: 0.7,
-                                offset: Offset(0, 0.4),
-                              ),
-                            ],
-                          ),
-                          child: Image.asset(
-                            "assets/images/ps4_console_white_1.png",
-                            fit: BoxFit.contain,
-                          ).marginAll(8),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ).marginSymmetric(horizontal: 20),
-              const Divider(
-                thickness: 1,
-                // color: AppColors.dividerColor,
-              ).marginSymmetric(horizontal: 20, vertical: 20),
-              Row(
-                children: [
-                  Text(
-                    'Barang Dikirim dari',
-                    // style: AppStyle.styleTextBody14(fontWeight: FontWeight.w400, colorText: AppColors.greyText),
-                  ),
-                  Text(
-                    'jakarta',
-                    // style: AppStyle.styleTextBody14(fontWeight: FontWeight.w700),
-                  ).marginOnly(left: 5),
-                ],
-              ).marginSymmetric(horizontal: 20),
+              ).marginSymmetric(horizontal: 20, vertical: 10),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Deskripsi',
+                    style: AppStyle.styleTextBody16(fontWeight: FontWeight.w600),
+                  ).marginOnly(top: 20).marginSymmetric(vertical: 5),
+                  Text(
+                    controller.detailProduct?.data?.attributes?.description ?? '',
                     // style: AppStyle.styleTextBody16(fontWeight: FontWeight.w600),
                   ).marginOnly(top: 20).marginSymmetric(vertical: 5),
-                  Text(' description')
                 ],
-              ).marginSymmetric(horizontal: 20),
+              ).marginSymmetric(horizontal: 10),
               const SizedBox(height: 120),
             ],
           );
@@ -209,12 +117,13 @@ class AnimatedBottomBar extends StatelessWidget {
                         height: 44,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(25),
-                          border: Border.all(color: AppColors.primary, width: 1),
-                          color: AppColors.yellowLight,
+                          border: Border.all(color: AppColors.blue, width: 1),
+                          color: AppColors.blueSoft,
                         ),
                         child: Center(
                             child: SvgPicture.asset(
                           Assets.icShop,
+                          color: AppColors.blue,
                           width: 20,
                         )),
                       ),
@@ -289,24 +198,13 @@ showModal(context) {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'name',
-                                    style: AppStyle.styleTextBody16(fontWeight: FontWeight.w700, colorText: AppColors.yellow),
+                                    controller.detailProduct?.data?.attributes?.name ?? '',
+                                    style: AppStyle.styleTextBody16(fontWeight: FontWeight.w700, colorText: AppColors.blue),
                                   ),
                                   Text(
-                                    'price',
-                                    style: AppStyle.styleTextBody14(fontWeight: FontWeight.w700, colorText: AppColors.greyText),
+                                    controller.formatPrice(controller.detailProduct?.data?.attributes?.price ?? 0),
+                                    style: AppStyle.styleTextBody14(fontWeight: FontWeight.w700),
                                   ),
-                                  GetBuilder<DetailProductPageController>(builder: (controller) {
-                                    return QtyButton(
-                                      onMin: () {
-                                        // controller.onMinus();
-                                      },
-                                      onPlus: () {
-                                        // controller.onPlus();
-                                      },
-                                      qty: '1',
-                                    );
-                                  })
                                 ],
                               ).marginOnly(top: 10, left: 15),
                             ),
@@ -331,18 +229,32 @@ showModal(context) {
                                 return Row(
                                   children: [
                                     GestureDetector(
-                                      onTap: () async {},
+                                      onTap: () async {
+                                        if (controller.detailProduct != null) {
+                                          var sqlHelper = await SqlLiteHelper.instance.cartTable;
+                                          var productId = controller.detailProduct?.data?.id.toString() ?? '';
+                                          var data = await sqlHelper.getCartById(productId);
+                                          if (data == null) {
+                                            await sqlHelper.insertCart(controller.detailProduct!);
+                                            Navigator.of(context).pop();
+                                            showAlertDialog(context);
+                                          } else {
+                                            SizedBox.shrink();
+                                          }
+                                        }
+                                      },
                                       child: Container(
                                         width: 44,
                                         height: 44,
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(25),
-                                          border: Border.all(color: AppColors.primary, width: 1),
-                                          color: AppColors.yellowLight,
+                                          border: Border.all(color: AppColors.blue, width: 1),
+                                          color: AppColors.blueSoft,
                                         ),
                                         child: Center(
                                             child: SvgPicture.asset(
                                           Assets.icShop,
+                                          color: AppColors.blue,
                                           width: 20,
                                         )),
                                       ),
@@ -350,7 +262,16 @@ showModal(context) {
                                     const SizedBox(width: 10),
                                     Expanded(
                                       child: ElevatedButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Get.offNamed(
+                                            Routes.CHECKOUT_PAGE,
+                                            arguments: {
+                                              'product': [controller.detailProduct],
+                                              'from': 'detail',
+                                              // 'harga': controller.harga,
+                                            },
+                                          );
+                                        },
                                         style: AppStyle.styleButton(borderRadius: 23),
                                         child: Text(
                                           'Beli Sekarang',
@@ -374,108 +295,6 @@ showModal(context) {
       });
     },
   );
-}
-
-class QtyButton extends StatefulWidget {
-  const QtyButton({
-    Key? key,
-    required this.onMin,
-    required this.onPlus,
-    required this.qty,
-  }) : super(key: key);
-
-  final VoidCallback onMin;
-  final VoidCallback onPlus;
-  final String qty;
-
-  @override
-  // ignore: library_private_types_in_public_api
-  _QtyButtonState createState() => _QtyButtonState();
-}
-
-class _QtyButtonState extends State<QtyButton> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          SizedBox(
-            width: 15,
-            child: GestureDetector(
-              onTap: () {
-                // Call the onPlus callback
-                widget.onMin();
-                // Manually update the TextField value
-                // _updateTextFieldValue(1);
-              },
-              child: const CircleAvatar(
-                radius: 12,
-                backgroundColor: Colors.grey,
-                child: Icon(
-                  Icons.remove,
-                  size: 12,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-          SizedBox(
-            width: 18,
-            child: Center(
-                child: Text(
-              widget.qty,
-              style: const TextStyle(fontSize: 13),
-              textAlign: TextAlign.center,
-            )
-                // TextField(
-                //   controller: widget.controller,
-                //   keyboardType: TextInputType.number,
-                //   onChanged: (newValue) {},
-                //   style: const TextStyle(
-                //     fontSize: 12,
-                //     color: Colors.black,
-                //   ),
-                //   textAlign: TextAlign.center,
-                //   decoration: const InputDecoration(
-                //     border: InputBorder.none,
-                //   ),
-                // ),
-                ),
-          ),
-          SizedBox(
-            width: 15,
-            child: GestureDetector(
-              onTap: () {
-                // Call the onPlus callback
-                widget.onPlus();
-                // Manually update the TextField value
-                // _updateTextFieldValue(1);
-              },
-              child: const CircleAvatar(
-                radius: 12,
-                backgroundColor: AppColors.yellow,
-                child: Icon(
-                  Icons.add,
-                  size: 12,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          )
-        ],
-      ),
-    ).marginOnly(right: 10);
-  }
-
-  // Helper function to update the TextField value
-  // void _updateTextFieldValue(int increment) {
-  //   final currentValue = int.tryParse(widget.controller.text) ?? 0;
-  //   final newValue = currentValue + increment;
-  //   if (newValue > 0) {
-  //     widget.controller.text = newValue.toString();
-  //   }
-  // }
 }
 
 class CustomBulletTitle extends StatelessWidget {
@@ -553,3 +372,25 @@ class CustomBulletTitle extends StatelessWidget {
 //   }
 // }
 
+showAlertDialog(BuildContext context) {
+  AlertDialog alert = AlertDialog(
+    backgroundColor: AppColors.white,
+    surfaceTintColor: Colors.transparent,
+    // title: SvgPicture.asset(
+    //   Assets.icPopUpSuccess,
+    // ),
+    content: Text(
+      "Produk Berhasil disimpan dikeranjang!",
+      textAlign: TextAlign.center,
+      style: AppStyle.styleTextBody20(fontWeight: FontWeight.w700, colorText: AppColors.yellow),
+    ),
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}

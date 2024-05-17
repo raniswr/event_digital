@@ -5,8 +5,8 @@ import '../controllers/intro_page_controller.dart';
 class IntroPageBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<IntroPageController>(
-      () => IntroPageController(),
+    Get.put<IntroPageController>(
+      IntroPageController(),
     );
   }
 }

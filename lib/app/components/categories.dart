@@ -1,17 +1,19 @@
+import 'package:event_digital/app/data/model/model_category.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Categories extends StatelessWidget {
-  const Categories({super.key});
+  final ModelCategory? text;
+  const Categories({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
-      {"icon": "assets/icons/Flash Icon.svg", "text": "Flash Deal"},
-      {"icon": "assets/icons/Bill Icon.svg", "text": "Bill"},
-      {"icon": "assets/icons/Game Icon.svg", "text": "Game"},
-      {"icon": "assets/icons/Gift Icon.svg", "text": "Daily Gift"},
-      {"icon": "assets/icons/Discover.svg", "text": "More"},
+      {"icon": "assets/icons/Flash Icon.svg", "text": text?.data?[0].attributes?.name.toString()},
+      {"icon": "assets/icons/Bill Icon.svg", "text": text?.data?[1].attributes?.name.toString()},
+      // {"icon": "assets/icons/Game Icon.svg", "text": "Game"},
+      // {"icon": "assets/icons/Gift Icon.svg", "text": "Daily Gift"},
+      // {"icon": "assets/icons/Discover.svg", "text": "More"},
     ];
     return Padding(
       padding: const EdgeInsets.all(20),

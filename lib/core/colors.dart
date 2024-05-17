@@ -20,7 +20,7 @@ class AppColors {
   static const Color inputColor = Color(0xFFF4F6F9);
   static const Color inactiveIconColor = Color(0xFF9BA1A1);
   static const Color inactiveIconBottomNav = Color(0xFFA5ABB3);
-  static const Color blue = Color(0xFF9AECFE);
+  static const Color blue = Color(0xFF2c62e0);
   static const Color blueText = Color(0xFF04A0F9);
   static const Color bgBottomSheet = Color(0xFFf9f9f9);
   static const Color bgBottomSheets = Color(0xFFfbfbfb);

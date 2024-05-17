@@ -1,13 +1,19 @@
+import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
 import 'package:event_digital/app/component/grocery_item_tile.dart';
 import 'package:event_digital/app/components/categories.dart';
 import 'package:event_digital/app/components/discount_banner.dart';
 import 'package:event_digital/app/components/home_header.dart';
 import 'package:event_digital/app/components/icon_btn_with_counter.dart';
 import 'package:event_digital/app/components/popular_product.dart';
+import 'package:event_digital/app/data/services/user_services.dart';
 import 'package:event_digital/app/routes/app_pages.dart';
+import 'package:event_digital/core/colors.dart';
+import 'package:event_digital/core/style.dart';
 import 'package:flutter/material.dart';
-
+import 'package:extended_image/extended_image.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../controllers/home_controller.dart';
 // import 'package:google_fonts/google_fonts.dart';
@@ -51,107 +57,205 @@ class HomeView extends GetView<HomeController> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.white,
-        onPressed: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return CartPage();
-            },
-          ),
-        ),
+        // onPressed: () => Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) {
+        //       return CartPage();
+        //     },
+        //   ),
+        // ),
+        onPressed: () {
+          Get.toNamed(Routes.KERANJANG_PAGE);
+        },
         child: const Icon(
           Icons.shopping_bag,
           color: Color.fromARGB(255, 35, 31, 31),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 48),
+      body: GetBuilder<HomeController>(builder: (controller) {
+        return SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 48),
 
-            // good morning bro
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.0),
-              child: Text(
-                'Good morning,',
-                style: TextStyle(
-                  fontFamily: 'Sathoshi',
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 4),
-
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.0),
-              child: Text(
-                "Create your Event Now!",
-                style: TextStyle(
-                  fontFamily: 'Sathoshi',
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 24),
-
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.0),
-              child: Divider(),
-            ),
-
-            const SizedBox(height: 24),
-
-            // categories -> horizontal listview
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
-              child: Text(
-                "Category",
-                style: TextStyle(
-                  fontFamily: 'Sathoshi',
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-
-            Categories(),
-            DiscountBanner(),
-            PopularProducts(),
-
-            // PopularProducts(),
-            // recent orders -> show last 3
-            HomeHeader().marginOnly(top: 30),
-            GetBuilder<HomeController>(builder: (controller) {
-              return SizedBox(
-                height: 800,
-                width: double.infinity,
-                child: GridView.builder(
-                  padding: const EdgeInsets.all(12),
-                  physics: const BouncingScrollPhysics(),
-                  itemCount: controller.shopItems.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 1 / 1.2,
+              // good morning bro
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24.0),
+                child: Text(
+                  'Good morning,',
+                  style: TextStyle(
+                    fontFamily: 'Sathoshi',
                   ),
-                  itemBuilder: (context, index) {
-                    return GroceryItemTile(
-                        itemName: controller.shopItems[index][0],
-                        itemPrice: controller.shopItems[index][1],
-                        imagePath: controller.shopItems[index][2],
-                        color: controller.shopItems[index][3],
-                        onPressed: () {
-                          Get.toNamed(Routes.DETAIL_PRODUCT_PAGE);
-                          controller.addItemToCart(index);
-                        });
-                  },
                 ),
-              );
-            }),
-          ],
-        ),
-      ),
+              ),
+
+              const SizedBox(height: 4),
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24.0),
+                child: Text(
+                  "Create your Event Now!",
+                  style: TextStyle(
+                    fontFamily: 'Sathoshi',
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 24),
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24.0),
+                child: Divider(),
+              ),
+
+              const SizedBox(height: 24),
+
+              // categories -> horizontal listview
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                child: Text(
+                  "Category",
+                  style: TextStyle(
+                    fontFamily: 'Sathoshi',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+
+              controller.allCategory != null
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: List.generate(
+                          controller.allCategory?.data?.length ?? 0,
+                          (index) => GestureDetector(
+                                // onTap: press,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      padding: const EdgeInsets.all(16),
+                                      height: 66,
+                                      width: 66,
+                                      decoration: BoxDecoration(
+                                        color: AppColors.blue.withOpacity(0.3),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      child: SvgPicture.asset(
+                                        'assets/icons/Flash Icon.svg',
+                                        color: AppColors.blue,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 4),
+                                    Text(controller.allCategory?.data?[index].attributes?.name ?? '', textAlign: TextAlign.center)
+                                  ],
+                                ),
+                              )),
+                    ).paddingAll(20)
+                  : SizedBox.shrink(),
+              DiscountBanner(),
+              // PopularProducts(),
+
+              // PopularProducts(),
+              // recent orders -> show last 3
+              HomeHeader().marginOnly(top: 30),
+              GetBuilder<HomeController>(builder: (controller) {
+                return SizedBox(
+                    height: 800,
+                    width: 500,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      child: DynamicHeightGridView(
+                        itemCount: controller.allProudct?.data?.length ?? 0,
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 10,
+                        builder: (context, index) {
+                          String? productName = controller.allProudct?.data?[index].attributes?.name;
+                          int? productPrice = controller.allProudct?.data?[index].attributes?.price;
+                          int? productId = controller.allProudct?.data?[index].id;
+                          String? productImage = controller.allProudct?.data?[index].attributes?.images?.data?[index].attributes?.formats?.thumbnail?.url;
+
+                          return GestureDetector(
+                            onTap: () {
+                              Get.toNamed(
+                                Routes.DETAIL_PRODUCT_PAGE,
+                                arguments: {
+                                  'productId': productId,
+                                  'image': productImage,
+                                },
+                              );
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: AppColors.white,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey.withOpacity(0.8),
+                                    offset: const Offset(0, 0.2),
+                                  ),
+                                ],
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  // productImage != null
+                                  //           ?
+                                  Column(
+                                    children: [
+                                      productImage != null
+                                          ? ClipRRect(
+                                              borderRadius: const BorderRadius.only(
+                                                topLeft: Radius.circular(16.0),
+                                                topRight: Radius.circular(16.0),
+                                              ),
+                                              child: Image.network(
+                                                // productImage,
+                                                'http://localhost:1337${productImage}',
+                                                // 'http://localhost:1337/uploads/thumbnail_image_bd8b1b9dd6.jpeg',
+                                                width: double.infinity,
+                                                height: 160,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ).marginOnly(bottom: 10)
+                                          : SizedBox.shrink()
+                                    ],
+                                  ),
+
+                                  // : const SizedBox.shrink(),
+                                  SizedBox(
+                                      child: Text(
+                                    productName ?? '',
+                                    textAlign: TextAlign.center,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: Theme.of(context).textTheme.bodyMedium,
+                                  )).marginOnly(left: 20),
+
+                                  Text(
+                                    controller.formatPrice(productPrice ?? 0),
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                      // color: kPrimaryColor,
+                                    ),
+                                  ).marginOnly(left: 20, bottom: 15),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ).marginSymmetric(vertical: 20),
+                    ));
+              }),
+            ],
+          ),
+        );
+      }),
     );
   }
 }

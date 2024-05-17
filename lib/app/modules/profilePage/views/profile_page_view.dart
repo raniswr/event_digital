@@ -1,5 +1,7 @@
 import 'package:event_digital/app/modules/profilePage/views/components/profile_menu.dart';
 import 'package:event_digital/app/modules/profilePage/views/components/profile_pic.dart';
+import 'package:event_digital/app/routes/app_pages.dart';
+import 'package:event_digital/core/style.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -12,7 +14,10 @@ class ProfilePageView extends GetView<ProfilePageController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile"),
+        title: Text(
+          "Profile",
+          style: AppStyle.styleTextBody16(fontWeight: FontWeight.bold),
+        ),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 20),
@@ -21,22 +26,26 @@ class ProfilePageView extends GetView<ProfilePageController> {
             const ProfilePic(),
             const SizedBox(height: 20),
             ProfileMenu(
-              text: "My Account",
+              text: "Edit Profile",
               icon: "assets/icons/User Icon.svg",
-              press: () => {},
+              press: () => {
+                Get.toNamed(Routes.EDIT_PROFILE),
+              },
             ),
+            // ProfileMenu(
+            //   text: "Notifications",
+            //   icon: "assets/icons/Bell.svg",
+            //   press: () {},
+            // ),
             ProfileMenu(
-              text: "Notifications",
-              icon: "assets/icons/Bell.svg",
-              press: () {},
-            ),
-            ProfileMenu(
-              text: "Settings",
+              text: "Reset Password",
               icon: "assets/icons/Settings.svg",
-              press: () {},
+              press: () {
+                Get.toNamed(Routes.RESET_PASSWORD);
+              },
             ),
             ProfileMenu(
-              text: "Help Center",
+              text: "FAQ",
               icon: "assets/icons/Question mark.svg",
               press: () {},
             ),

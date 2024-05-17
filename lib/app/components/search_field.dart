@@ -1,3 +1,4 @@
+import 'package:event_digital/core/colors.dart';
 import 'package:flutter/material.dart';
 
 class SearchField extends StatelessWidget {
@@ -12,7 +13,7 @@ class SearchField extends StatelessWidget {
         onChanged: (value) {},
         decoration: InputDecoration(
           filled: true,
-          // fillColor: kSecondaryColor.withOpacity(0.1),
+          fillColor: AppColors.gray.withOpacity(0.1),
           contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           border: searchOutlineInputBorder,
           focusedBorder: searchOutlineInputBorder,

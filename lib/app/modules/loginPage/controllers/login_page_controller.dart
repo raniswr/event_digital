@@ -24,8 +24,8 @@ class LoginPageController extends GetxController {
       );
 
       await StorageMethod.saveUserToLocal(user);
-      Get.offAllNamed(Routes.HOME);
       update();
+      Get.offAllNamed(Routes.HOME);
     }
   }
 }

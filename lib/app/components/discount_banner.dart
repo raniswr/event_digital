@@ -1,3 +1,4 @@
+import 'package:event_digital/core/colors.dart';
 import 'package:flutter/material.dart';
 
 class DiscountBanner extends StatelessWidget {
@@ -15,7 +16,7 @@ class DiscountBanner extends StatelessWidget {
         vertical: 16,
       ),
       decoration: BoxDecoration(
-        color: const Color(0xFF4A3298),
+        color: AppColors.blue,
         borderRadius: BorderRadius.circular(20),
       ),
       child: const Text.rich(

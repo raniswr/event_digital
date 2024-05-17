@@ -44,7 +44,7 @@ class PopularProducts extends StatelessWidget {
                     );
                   }
 
-                  return const SizedBox.shrink(); // here by default width and height is 0
+                  return const SizedBox.shrink();
                 },
               ),
               const SizedBox(width: 20),
