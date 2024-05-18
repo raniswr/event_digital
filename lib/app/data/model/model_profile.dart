@@ -1,3 +1,5 @@
+import 'package:event_digital/config/api_client.dart';
+
 class ModelProfile {
   int? id;
   String? username;
@@ -10,8 +12,22 @@ class ModelProfile {
   String? name;
   String? address;
   String? phoneNo;
+  String? image;
 
-  ModelProfile({this.id, this.username, this.email, this.provider, this.confirmed, this.blocked, this.createdAt, this.updatedAt, this.name, this.address, this.phoneNo});
+  ModelProfile({
+    this.id,
+    this.image,
+    this.username,
+    this.email,
+    this.provider,
+    this.confirmed,
+    this.blocked,
+    this.createdAt,
+    this.updatedAt,
+    this.name,
+    this.address,
+    this.phoneNo,
+  });
 
   ModelProfile.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -25,21 +41,31 @@ class ModelProfile {
     name = json['name'];
     address = json['address'];
     phoneNo = json['phone_no'];
+    image = getImageUrl(json['image']);
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['username'] = this.username;
-    data['email'] = this.email;
-    data['provider'] = this.provider;
-    data['confirmed'] = this.confirmed;
-    data['blocked'] = this.blocked;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['name'] = this.name;
-    data['address'] = this.address;
-    data['phone_no'] = this.phoneNo;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['username'] = username;
+    data['email'] = email;
+    data['provider'] = provider;
+    data['confirmed'] = confirmed;
+    data['blocked'] = blocked;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['name'] = name;
+    data['address'] = address;
+    data['phone_no'] = phoneNo;
+    data['image'] = image;
     return data;
+  }
+}
+
+String? getImageUrl(json) {
+  try {
+    return AppClient.baseUrlImage + json["url"];
+  } catch (e) {
+    return null;
   }
 }
