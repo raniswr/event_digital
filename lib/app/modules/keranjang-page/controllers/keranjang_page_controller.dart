@@ -4,16 +4,23 @@ import 'package:event_digital/utils/sqlite_helper.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
+String formatPrice(int productPrice) {
+  final formatter = NumberFormat.currency(
+    symbol: 'Rp',
+    decimalDigits: 0,
+    locale: 'id_ID',
+  );
+  return formatter.format(productPrice);
+}
+
 class KeranjangPageController extends GetxController {
   bool isAllChecked = false;
   List<ModelDetail> carts = [];
-  List<ModelDetail> cartsPengiriman = [];
-  int? count;
+  List<ModelDetail> cartsSeletected = [];
 
   @override
   void onReady() async {
     getCart();
-    // getProfile(UserService.find.user?.id ?? '');
     super.onReady();
   }
 
@@ -25,17 +32,6 @@ class KeranjangPageController extends GetxController {
     await sqlHelper.updateCheckedAllProduct(isAllChecked ? 1 : 0);
 
     getCart();
-  }
-
-  String calculateTotalPrice() {
-    int totalPrice = 0;
-    for (var cartPengirim in cartsPengiriman) {
-      if (cartPengirim.checked != null) {
-        // Assuming 'checked' is a property indicating whether the item is checked
-        totalPrice += (cartPengirim.data!.attributes?.price ?? 0);
-      }
-    }
-    return formatPrice(totalPrice);
   }
 
   void updateCheckboxValue(String id, int check) async {
@@ -62,31 +58,6 @@ class KeranjangPageController extends GetxController {
     update();
   }
 
-  getCartCheck() async {
-    var sqlHelper = await SqlLiteHelper.instance.cartTable;
-    cartsPengiriman = await sqlHelper.getCheckedCart();
-    update();
-  }
-
-  String formatPrice(int productPrice) {
-    final formatter = NumberFormat.currency(
-      symbol: 'Rp',
-      decimalDigits: 0,
-      locale: 'id_ID',
-    );
-    return formatter.format(productPrice);
-  }
-
-  // ModelGetProfile? users;
-  // getProfile(String id) async {
-  //   var data = await ApiServices().getProfile(id);
-  //   if (data != null) {
-  //     users = data;
-  //     update();
-  //     delivery();
-  //   }
-  // }
-
   delete() async {
     var sqlHelper = await SqlLiteHelper.instance.cartTable;
     await sqlHelper.deleteCartProduct();
@@ -98,15 +69,37 @@ class KeranjangPageController extends GetxController {
     Get.back();
   }
 
+  String calculateTotalPrice() {
+    int totalPrice = 0;
+    for (var cartPengirim in carts) {
+      if (cartPengirim.checked != null) {
+        // Assuming 'checked' is a property indicating whether the item is checked
+        totalPrice = totalPrice + (cartPengirim.data!.attributes?.price ?? 0);
+      }
+    }
+    return formatPrice(totalPrice);
+  }
+
   goToPengiriman() async {
-    await getCartCheck();
+    var sqlHelper = await SqlLiteHelper.instance.cartTable;
+    var checked = await sqlHelper.getCheckedCart();
 
     Get.toNamed(Routes.CHECKOUT_PAGE, arguments: {
-      'product': cartsPengiriman,
+      'product': checked,
       'from': 'keranjang',
       // 'harga': harga,
     });
   }
+
+  // ModelGetProfile? users;
+  // getProfile(String id) async {
+  //   var data = await ApiServices().getProfile(id);
+  //   if (data != null) {
+  //     users = data;
+  //     update();
+  //     delivery();
+  //   }
+  // }
 }
 
 class CheckboxItem {

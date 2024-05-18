@@ -14,7 +14,7 @@ enum ModelTransactionType { INSERT, UPDATE }
 //SqlLite
 class SqlLiteHelper {
   static const _databaseName = "Glomori.db";
-  static const _currentDBVersion = 4;
+  static const _currentDBVersion = 5;
 
   SqlLiteHelper._privateConstructor();
   static final SqlLiteHelper instance = SqlLiteHelper._privateConstructor();

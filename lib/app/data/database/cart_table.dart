@@ -21,7 +21,7 @@ class CartTable {
 
   static const QUERY_CREATE_TABLE = """
         CREATE TABLE IF NOT EXISTS $_TB_CART(
-          $COL_ID PRIMARY KEY,
+          $COL_ID INTEGER NOT NULL PRIMARY KEY,
           $COL_TITLE TEXT, 
           $COL_SUBNAME TEXT, 
           $COL_IMAGE_URL TEXT, 
