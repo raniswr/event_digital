@@ -1,3 +1,4 @@
+import 'package:event_digital/app/data/storage_name.dart';
 import 'package:event_digital/app/modules/profilePage/views/components/profile_menu.dart';
 import 'package:event_digital/app/modules/profilePage/views/components/profile_pic.dart';
 import 'package:event_digital/app/routes/app_pages.dart';
@@ -5,6 +6,7 @@ import 'package:event_digital/core/style.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../controllers/profile_page_controller.dart';
 
@@ -52,7 +54,13 @@ class ProfilePageView extends GetView<ProfilePageController> {
             ProfileMenu(
               text: "Log Out",
               icon: "assets/icons/Log out.svg",
-              press: () {},
+              press: () async {
+                final SharedPreferences prefs = await SharedPreferences.getInstance();
+                var logout = await prefs.remove(StorageName.userKey);
+                if (logout) {
+                  Get.offAllNamed(Routes.LOGIN_PAGE);
+                }
+              },
             ),
           ],
         ),
