@@ -3,8 +3,10 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:event_digital/app/data/model/model_category.dart';
 import 'package:event_digital/app/data/model/model_detail.dart';
+import 'package:event_digital/app/data/model/model_edit_profile.dart';
 import 'package:event_digital/app/data/model/model_login.dart';
 import 'package:event_digital/app/data/model/model_product.dart';
+import 'package:event_digital/app/data/model/model_profile.dart';
 import 'package:event_digital/config/api_interface.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http_parser/http_parser.dart';
@@ -110,6 +112,24 @@ class ApiServices {
     }
   }
 
+  Future<ModelProduct?> filterCategory(String? category) async {
+    Dio dio = ApiInterfaceToken.instance.api;
+    String url = 'products?populate=%2A&filters%5Bcategory%5D[name]=$category';
+
+    try {
+      Response response = await dio.get(url);
+      if (response.statusCode == 200) {
+        var modelCategory = ModelProduct.fromJson(response.data);
+        return modelCategory;
+      } else {
+        return null;
+      }
+    } catch (e) {
+      // log(e);
+      return null;
+    }
+  }
+
   Future<ModelDetail?> getDetail(int? id) async {
     Dio dio = ApiInterfaceToken.instance.api;
     String url = 'products/$id?populate=%2A';
@@ -127,6 +147,85 @@ class ApiServices {
     } catch (e) {
       // log(e);
       return null;
+    }
+  }
+
+  Future<ModelProfile?> getProfile(int? id) async {
+    Dio dio = ApiInterfaceToken.instance.api;
+    String url = 'users/$id';
+
+    try {
+      Response response = await dio.get(url);
+
+      if (response.statusCode == 200) {
+        var modelProfile = ModelProfile.fromJson(response.data);
+        print('profil ${modelProfile.username}');
+        return modelProfile;
+      } else {
+        return null;
+      }
+    } catch (e) {
+      // log(e);
+      return null;
+    }
+  }
+
+  Future<ModelEditProfile?> editProfile({required String email, required String password, required String address, required String phone, required String username, int? id}) async {
+    Dio dio = ApiInterfaceToken.instance.api;
+    String url = 'users/$id';
+    Response? result;
+    EasyLoading.show();
+    try {
+      result = await dio.put(url, data: {
+        'username': username,
+        'email': email,
+        'password': password,
+        'address': address,
+        'phone_no': phone,
+      });
+      EasyLoading.dismiss();
+    } on DioException catch (e) {
+      EasyLoading.dismiss();
+      EasyLoading.showError('Gagal');
+      return null;
+    }
+    if (result.statusCode == 200) {
+      var modelAuth = ModelEditProfile.fromJson(result.data);
+      EasyLoading.dismiss();
+      EasyLoading.showSuccess('Berhasil');
+      return modelAuth;
+    } else {
+      EasyLoading.dismiss();
+      EasyLoading.showError('Gagal');
+      return null;
+    }
+  }
+
+  static Future<bool> changePassword({
+    required String oldPassword,
+    required String newPassword,
+    required String confirmationPassword,
+    String? id,
+  }) async {
+    Dio dio = ApiInterfaceToken.instance.api;
+    String url = 'auth/change-password';
+
+    Response? result;
+    EasyLoading.show();
+    try {
+      result = await dio.put(url, data: {
+        'currentPassword': oldPassword,
+        'password': newPassword,
+        'passwordConfirmation': confirmationPassword,
+      });
+      EasyLoading.dismiss();
+      EasyLoading.showSuccess('Berhasil Mengubah Password');
+      return true;
+    } on DioException catch (e) {
+      EasyLoading.dismiss();
+      EasyLoading.showError('Gagal Mengubah Password');
+
+      return false;
     }
   }
 }

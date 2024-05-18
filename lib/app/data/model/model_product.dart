@@ -1,3 +1,5 @@
+import 'package:event_digital/app/data/model/model_detail.dart';
+
 class ModelProduct {
   List<Data>? data;
   Meta? meta;
@@ -277,13 +279,34 @@ class Thumbnail {
   }
 }
 
+class DataCategory {
+  int? id;
+  AttributesCategory? attributes;
+
+  DataCategory({this.id, this.attributes});
+
+  DataCategory.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    attributes = json['attributes'] != null ? new AttributesCategory.fromJson(json['attributes']) : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    if (this.attributes != null) {
+      data['attributes'] = this.attributes!.toJson();
+    }
+    return data;
+  }
+}
+
 class Category {
-  Data? data;
+  DataCategory? data;
 
   Category({this.data});
 
   Category.fromJson(Map<String, dynamic> json) {
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? new DataCategory.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {

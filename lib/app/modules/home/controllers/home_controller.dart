@@ -8,6 +8,14 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 class HomeController extends GetxController {
+  String? selectedCategory;
+
+  void setCategory(String name) {
+    selectedCategory = name;
+    update();
+    getFilterProduct();
+  }
+
   final List _shopItems = const [
     // [ itemName, itemPrice, imagePath, color ]
     ["Avocado", "4.00", '', Colors.green],
@@ -62,6 +70,14 @@ class HomeController extends GetxController {
     }
   }
 
+  getFilterProduct() async {
+    var data = await ApiServices().filterCategory(selectedCategory);
+    if (data != null) {
+      allProudct = data;
+      update();
+    }
+  }
+
   ModelCategory? allCategory;
   getCategory() async {
     var data = await ApiServices().getCategory();
@@ -75,6 +91,7 @@ class HomeController extends GetxController {
   void onReady() async {
     getAllProduct();
     getCategory();
+
     var dataLogin = await UserService.find.getLocalUser();
 
     print('hai ${dataLogin?.isLogin}');

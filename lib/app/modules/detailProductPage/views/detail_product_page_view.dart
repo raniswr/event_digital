@@ -27,19 +27,65 @@ class DetailProductPageView extends GetView<DetailProductPageController> {
       floatingActionButton: const AnimatedBottomBar(),
       body: SingleChildScrollView(
         child: GetBuilder<DetailProductPageController>(builder: (controller) {
+          List<String> countries = [
+            "http://localhost:1337${controller.image}",
+            "http://localhost:1337${controller.image}",
+            "http://localhost:1337${controller.image}",
+            "http://localhost:1337${controller.image}",
+          ];
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               controller.image != null
                   ? Image.network(
-                      // productImage,
                       'http://localhost:1337${controller.image}',
-
                       width: double.infinity,
-                      height: 180,
+                      height: 200,
                       fit: BoxFit.cover,
                     ).marginOnly(bottom: 10)
                   : SizedBox.shrink(),
+              // SizedBox(
+              //   height: 200,
+              //   width: double.infinity,
+              //   child: ListView(
+              //     scrollDirection: Axis.horizontal,
+              //     children: <Widget>[
+              //       Image.network(
+              //         'http://localhost:1337${controller.image}',
+              //         width: 150,
+              //         height: 150,
+              //         fit: BoxFit.cover,
+              //       ),
+              //       Image.network(
+              //         'http://localhost:1337${controller.image}',
+              //         width: 150,
+              //         height: 150,
+              //         fit: BoxFit.cover,
+              //       ),
+              //       Image.network(
+              //         'http://localhost:1337${controller.image}',
+              //         width: 150,
+              //         height: 150,
+              //         fit: BoxFit.cover,
+              //       ),
+              //       // Add more images here...
+              //     ],
+              //   ),
+              // ),
+              SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: countries.map((country) {
+                      return controller.image != null
+                          ? Image.network(
+                              country,
+                              width: 150,
+                              height: 150,
+                              fit: BoxFit.cover,
+                            ).marginSymmetric(horizontal: 5)
+                          : SizedBox.shrink();
+                    }).toList(),
+                  )),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -58,7 +104,7 @@ class DetailProductPageView extends GetView<DetailProductPageController> {
                     style: AppStyle.styleTextBody16(fontWeight: FontWeight.w700),
                   ),
                 ],
-              ).marginSymmetric(horizontal: 20),
+              ).marginSymmetric(horizontal: 20).marginOnly(top: 15),
               const Divider(
                 thickness: 1,
                 // color: AppColors.dividerColor,
@@ -75,7 +121,7 @@ class DetailProductPageView extends GetView<DetailProductPageController> {
                     // style: AppStyle.styleTextBody16(fontWeight: FontWeight.w600),
                   ).marginOnly(top: 20).marginSymmetric(vertical: 5),
                 ],
-              ).marginSymmetric(horizontal: 10),
+              ).marginSymmetric(horizontal: 20),
               const SizedBox(height: 120),
             ],
           );

@@ -1,3 +1,4 @@
+import 'package:event_digital/app/data/services/user_services.dart';
 import 'package:event_digital/core/colors.dart';
 import 'package:event_digital/core/style.dart';
 import 'package:flutter/material.dart';
@@ -92,7 +93,6 @@ class EditProfileView extends GetView<EditProfileController> {
                       children: [
                         GestureDetector(
                             onTap: () {
-                              // showAlertDialog(context, "Yakin Ingin Keluar?", context);
                               Navigator.of(context).pop();
                             },
                             child: Container(
@@ -111,7 +111,7 @@ class EditProfileView extends GetView<EditProfileController> {
                                 ))).marginOnly(right: 5),
                         ElevatedButton(
                           onPressed: () {
-                            // showAlertDialogEdit(context, "Yakin ingin mengubah data di Profil Anda?");
+                            controller.editProfile(UserService.find.user?.id);
                           },
                           style: AppStyle.styleButton(borderRadius: 18),
                           child: Text(

@@ -48,7 +48,12 @@ class CheckoutPageView extends GetView<CheckoutPageController> {
                     color: AppColors.dividerColor,
                   ).marginSymmetric(horizontal: 20),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Text(
+                        'Rincian Pemesanan',
+                        style: AppStyle.styleTextBody16(fontWeight: FontWeight.w700),
+                      ).marginOnly(top: 10),
                       ListView.builder(
                         itemCount: controller.product?.length ?? 0,
                         shrinkWrap: true,
@@ -67,12 +72,13 @@ class CheckoutPageView extends GetView<CheckoutPageController> {
                               //         ),
                               //       ).marginOnly(right: 10)
                               //     : const SizedBox.shrink(),
-                              Image.asset(
-                                'assets/images/ps4_console_white_1.png',
-                                width: 93,
-                                height: 93,
-                                fit: BoxFit.cover,
-                              ).marginOnly(right: 20),
+                              // Image.asset(
+                              //   'assets/images/ps4_console_white_1.png',
+                              //   width: 93,
+                              //   height: 93,
+                              //   fit: BoxFit.cover,
+                              // ).marginOnly(right: 20),
+
                               Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,34 +127,7 @@ class CheckoutPageView extends GetView<CheckoutPageController> {
                     thickness: 1,
                     color: AppColors.dividerColor,
                   ).marginSymmetric(horizontal: 20),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Rincian Pemesanan',
-                        style: AppStyle.styleTextBody16(fontWeight: FontWeight.w700),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Subtotal Produk',
-                            style: AppStyle.styleTextBody16(colorText: AppColors.greyTextLight),
-                          ),
-                          Text(
-                            // controller.formatPrice(controller.subTotal),
-                            controller.formatPrice(controller.totalPrice),
-                            style: AppStyle.styleTextBody14(fontWeight: FontWeight.w600),
-                          )
-                        ],
-                      ).marginOnly(top: 10),
-                    ],
-                  ).marginAll(20),
-                  const Divider(
-                    thickness: 1,
-                    color: AppColors.dividerColor,
-                  ).marginSymmetric(horizontal: 20),
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

@@ -1,23 +1,38 @@
+import 'package:event_digital/app/data/services/api_services.dart';
+import 'package:event_digital/app/data/services/user_services.dart';
+import 'package:event_digital/app/routes/app_pages.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ResetPasswordController extends GetxController {
-  //TODO: Implement ResetPasswordController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  TextEditingController passwordControllerProfile = TextEditingController();
+  bool passwordVisible = true;
+  TextEditingController passwordKonfirmasiController = TextEditingController();
+  // bool autoValidate = false;
+  bool passwordKonfirmasiVisible = true;
+  TextEditingController passwordKataSandiBaruController = TextEditingController();
+  bool passwordKataSandiBaruVisible = true;
+  TextEditingController passwordController = TextEditingController();
+  passwordVisibility() {
+    passwordVisible = !passwordVisible;
+    update();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  passwordKonfirmasiVisibility() {
+    passwordKonfirmasiVisible = !passwordKonfirmasiVisible;
+    update();
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  passwordKataSandiBaruVisibility() {
+    passwordKataSandiBaruVisible = !passwordKataSandiBaruVisible;
+    update();
   }
 
-  void increment() => count.value++;
+  void changePassword(BuildContext context) async {
+    var result = await ApiServices.changePassword(
+      oldPassword: passwordController.text,
+      newPassword: passwordKataSandiBaruController.text,
+      confirmationPassword: passwordKonfirmasiController.text,
+    );
+  }
 }

@@ -115,7 +115,7 @@ class HomeView extends GetView<HomeController> {
               const SizedBox(height: 24),
 
               // categories -> horizontal listview
-              Padding(
+              const Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: Text(
                   "Category",
@@ -133,7 +133,9 @@ class HomeView extends GetView<HomeController> {
                       children: List.generate(
                           controller.allCategory?.data?.length ?? 0,
                           (index) => GestureDetector(
-                                // onTap: press,
+                                onTap: () {
+                                  controller.setCategory(controller.allCategory?.data?[index].attributes?.name ?? '');
+                                },
                                 child: Column(
                                   children: [
                                     Container(
@@ -144,9 +146,18 @@ class HomeView extends GetView<HomeController> {
                                         color: AppColors.blue.withOpacity(0.3),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
-                                      child: SvgPicture.asset(
-                                        'assets/icons/Flash Icon.svg',
+                                      child: Icon(
+                                        controller.allCategory?.data?[index].attributes?.name == 'Social'
+                                            ? Icons.people_outline
+                                            : controller.allCategory?.data?[index].attributes?.name == 'Corporate'
+                                                ? Icons.corporate_fare_outlined
+                                                : controller.allCategory?.data?[index].attributes?.name == 'Entertainment'
+                                                    ? Icons.event
+                                                    : controller.allCategory?.data?[index].attributes?.name == 'Charty'
+                                                        ? Icons.logo_dev
+                                                        : Icons.sports_baseball_outlined,
                                         color: AppColors.blue,
+                                        size: 30,
                                       ),
                                     ),
                                     const SizedBox(height: 4),
@@ -179,6 +190,7 @@ class HomeView extends GetView<HomeController> {
                           int? productId = controller.allProudct?.data?[index].id;
                           String? productImage = controller.allProudct?.data?[index].attributes?.images?.data?[index].attributes?.formats?.thumbnail?.url;
 
+                          var leghtItem = controller.allProudct?.data?[index].attributes?.category?.data?.attributes?.name;
                           return GestureDetector(
                             onTap: () {
                               Get.toNamed(

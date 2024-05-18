@@ -21,6 +21,7 @@ class LoginPageController extends GetxController {
         email: result.user?.email,
         alamat: result.user?.address,
         isLogin: true,
+        password: passwordController.text,
       );
 
       await StorageMethod.saveUserToLocal(user);

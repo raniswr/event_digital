@@ -5,9 +5,10 @@ class ModelUser {
   String? email;
   String? phone;
   String? alamat;
+  String? password;
   bool? isLogin;
 
-  ModelUser({this.token, this.id, this.username, this.email, this.phone, this.alamat, this.isLogin});
+  ModelUser({this.token, this.id, this.username, this.email, this.phone, this.alamat, this.isLogin, this.password});
 
   ModelUser.fromJson(Map<String, dynamic> json) {
     token = json['token'];
@@ -16,6 +17,7 @@ class ModelUser {
     email = json['email'];
     phone = json['phone'];
     alamat = json['lokasi'];
+    password = json['password'];
     isLogin = json['isLogin'];
   }
 
@@ -27,6 +29,7 @@ class ModelUser {
     data['email'] = email;
     data['phone'] = phone;
     data['lokasi'] = alamat;
+    data['password'] = password;
     data['isLogin'] = isLogin;
     return data;
   }

@@ -24,7 +24,8 @@ class Assets {
   static const String icTokopedia = '${imagePath}ic_tokopedia.png';
   static const String qrProfile = '${imagePath}qr_profile.jpeg';
   static const String mandiri = '${imagePath}mandiri.png';
-
+  static const String icInvisiblePass = '${iconPath}ic_invisible_pass.svg';
+  static const String icVisiblePass = '${iconPath}ic_visible_pass.svg';
   static const String icOnboarding = '${iconPath}on_boarding.svg';
   static const String icShop = '${iconPath}ic_shop.svg';
 }
