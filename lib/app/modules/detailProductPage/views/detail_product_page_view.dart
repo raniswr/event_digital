@@ -27,18 +27,18 @@ class DetailProductPageView extends GetView<DetailProductPageController> {
       floatingActionButton: const AnimatedBottomBar(),
       body: SingleChildScrollView(
         child: GetBuilder<DetailProductPageController>(builder: (controller) {
-          List<String> countries = [
-            "http://localhost:1337${controller.image}",
-            "http://localhost:1337${controller.image}",
-            "http://localhost:1337${controller.image}",
-            "http://localhost:1337${controller.image}",
-          ];
+          // List<String> countries = [
+          //   "http://localhost:1337${controller.image}",
+          //   "http://localhost:1337${controller.image}",
+          //   "http://localhost:1337${controller.image}",
+          //   "http://localhost:1337${controller.image}",
+          // ];
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              controller.image != null
+              controller.images != null
                   ? Image.network(
-                      'http://localhost:1337${controller.image}',
+                      controller.images?.data?.first.attributes?.url ?? '',
                       width: double.infinity,
                       height: 200,
                       fit: BoxFit.cover,
@@ -75,16 +75,15 @@ class DetailProductPageView extends GetView<DetailProductPageController> {
               SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: countries.map((country) {
-                      return controller.image != null
-                          ? Image.network(
-                              country,
-                              width: 150,
-                              height: 150,
-                              fit: BoxFit.cover,
-                            ).marginSymmetric(horizontal: 5)
-                          : SizedBox.shrink();
-                    }).toList(),
+                    children: controller.images?.data?.map((image) {
+                          return Image.network(
+                            image.attributes?.url ?? '',
+                            width: 150,
+                            height: 150,
+                            fit: BoxFit.cover,
+                          ).marginSymmetric(horizontal: 5);
+                        }).toList() ??
+                        [],
                   )),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,

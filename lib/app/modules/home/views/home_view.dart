@@ -5,6 +5,8 @@ import 'package:event_digital/app/components/discount_banner.dart';
 import 'package:event_digital/app/components/home_header.dart';
 import 'package:event_digital/app/components/icon_btn_with_counter.dart';
 import 'package:event_digital/app/components/popular_product.dart';
+import 'package:event_digital/app/data/model/model_detail.dart';
+import 'package:event_digital/app/data/model/model_product.dart';
 import 'package:event_digital/app/data/services/user_services.dart';
 import 'package:event_digital/app/routes/app_pages.dart';
 import 'package:event_digital/core/colors.dart';
@@ -185,12 +187,13 @@ class HomeView extends GetView<HomeController> {
                         crossAxisSpacing: 10,
                         mainAxisSpacing: 10,
                         builder: (context, index) {
-                          String? productName = controller.allProudct?.data?[index].attributes?.name;
-                          int? productPrice = controller.allProudct?.data?[index].attributes?.price;
-                          int? productId = controller.allProudct?.data?[index].id;
-                          String? productImage = controller.allProudct?.data?[index].attributes?.images?.data?[index].attributes?.formats?.thumbnail?.url;
+                          var data = controller.allProudct?.data?[index];
+                          String? productName = data?.attributes?.name;
+                          int? productPrice = data?.attributes?.price;
+                          int? productId = data?.id;
+                          ImageProduct? productImage = data?.attributes?.images;
 
-                          var leghtItem = controller.allProudct?.data?[index].attributes?.category?.data?.attributes?.name;
+                          // var leghtItem = data?.attributes?.category?.data?.attributes?.name;
                           return GestureDetector(
                             onTap: () {
                               Get.toNamed(
@@ -227,7 +230,7 @@ class HomeView extends GetView<HomeController> {
                                               ),
                                               child: Image.network(
                                                 // productImage,
-                                                'http://localhost:1337${productImage}',
+                                                '${productImage.data?.first.attributes?.url}',
                                                 // 'http://localhost:1337/uploads/thumbnail_image_bd8b1b9dd6.jpeg',
                                                 width: double.infinity,
                                                 height: 160,
