@@ -41,7 +41,7 @@ class ModelProfile {
     name = json['name'];
     address = json['address'];
     phoneNo = json['phone_no'];
-    image = getImageUrl(json['image']);
+    image = json['image'];
   }
 
   Map<String, dynamic> toJson() {

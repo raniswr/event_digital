@@ -26,8 +26,14 @@ class EditProfileController extends GetxController {
 
   editProfile(int? id) async {
     var dataLogin = await UserService.find.getLocalUser();
-    var data = await ApiServices()
-        .editProfile(id: id, email: emailController.text, phone: teleponController.text, password: dataLogin?.password ?? '', address: alamatController.text, username: namaController.text);
+    var data = await ApiServices().editProfile(
+      id: id,
+      email: emailController.text,
+      phone: teleponController.text,
+      password: dataLogin?.password ?? '',
+      address: alamatController.text,
+      username: namaController.text,
+    );
   }
 
   @override

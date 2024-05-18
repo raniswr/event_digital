@@ -1,5 +1,5 @@
-import 'dart:developer';
-import 'dart:io';
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:dio/dio.dart';
 import 'package:event_digital/app/data/model/model_category.dart';
 import 'package:event_digital/app/data/model/model_detail.dart';
@@ -7,9 +7,11 @@ import 'package:event_digital/app/data/model/model_edit_profile.dart';
 import 'package:event_digital/app/data/model/model_login.dart';
 import 'package:event_digital/app/data/model/model_product.dart';
 import 'package:event_digital/app/data/model/model_profile.dart';
+import 'package:event_digital/config/api_client.dart';
 import 'package:event_digital/config/api_interface.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:http_parser/http_parser.dart';
+import 'package:path/path.dart' as p;
 
 class ApiServices {
   static Future<ModelLogin?> login({required String email, required String password}) async {
@@ -23,7 +25,7 @@ class ApiServices {
         'password': password,
       });
       EasyLoading.dismiss();
-    } on DioException catch (e) {
+    } on DioException catch (_) {
       EasyLoading.dismiss();
 
       return null;
@@ -57,10 +59,10 @@ class ApiServices {
         'phone_no': phone,
         'password': password,
       });
-    } on DioException catch (e) {
+    } on DioException catch (_) {
       // EasyLoading.showError(e.response?.data['message']);
       EasyLoading.dismiss();
-      print(e);
+
       return null;
     }
     if (result.statusCode == 200 || result.statusCode == 201) {
@@ -152,20 +154,74 @@ class ApiServices {
 
   Future<ModelProfile?> getProfile(int? id) async {
     Dio dio = ApiInterfaceToken.instance.api;
-    String url = 'users/$id';
+    String url = 'users/$id?populate=%2A';
 
     try {
       Response response = await dio.get(url);
 
       if (response.statusCode == 200) {
         var modelProfile = ModelProfile.fromJson(response.data);
-        print('profil ${modelProfile.username}');
+
         return modelProfile;
       } else {
         return null;
       }
     } catch (e) {
       // log(e);
+      return null;
+    }
+  }
+
+  Future<ModelEditProfile?> editProfilePhoto({required String image, required int? id}) async {
+    Dio dio = ApiInterfaceToken.instance.api;
+    String urlUpload = 'upload';
+    String url = 'users/$id';
+    String? imageUpload;
+    Response? result;
+    EasyLoading.show();
+    try {
+      FormData formData;
+      formData = FormData.fromMap(
+        {
+          'files': await MultipartFile.fromFile(
+            image,
+            filename: image,
+            contentType: MediaType('image', p.extension(image)),
+          ),
+        },
+      );
+      var data = await dio.post(urlUpload, data: formData);
+      try {
+        imageUpload = AppClient.baseUrlImage + data.data[0]['url'];
+      } catch (_) {}
+      EasyLoading.dismiss();
+    } on DioException catch (_) {
+      EasyLoading.dismiss();
+      EasyLoading.showError('Gagal');
+      return null;
+    }
+    try {
+      FormData formData;
+      formData = FormData.fromMap(
+        {
+          'image': imageUpload,
+        },
+      );
+      result = await dio.put(url, data: formData);
+      EasyLoading.dismiss();
+    } on DioException catch (_) {
+      EasyLoading.dismiss();
+      EasyLoading.showError('Gagal');
+      return null;
+    }
+    if (result.statusCode == 200) {
+      var modelAuth = ModelEditProfile.fromJson(result.data);
+      EasyLoading.dismiss();
+      EasyLoading.showSuccess('Berhasil');
+      return modelAuth;
+    } else {
+      EasyLoading.dismiss();
+      EasyLoading.showError('Gagal');
       return null;
     }
   }
@@ -184,7 +240,7 @@ class ApiServices {
         'phone_no': phone,
       });
       EasyLoading.dismiss();
-    } on DioException catch (e) {
+    } on DioException catch (_) {
       EasyLoading.dismiss();
       EasyLoading.showError('Gagal');
       return null;
@@ -210,10 +266,9 @@ class ApiServices {
     Dio dio = ApiInterfaceToken.instance.api;
     String url = 'auth/change-password';
 
-    Response? result;
     EasyLoading.show();
     try {
-      result = await dio.put(url, data: {
+      await dio.put(url, data: {
         'currentPassword': oldPassword,
         'password': newPassword,
         'passwordConfirmation': confirmationPassword,
@@ -221,7 +276,7 @@ class ApiServices {
       EasyLoading.dismiss();
       EasyLoading.showSuccess('Berhasil Mengubah Password');
       return true;
-    } on DioException catch (e) {
+    } on DioException catch (_) {
       EasyLoading.dismiss();
       EasyLoading.showError('Gagal Mengubah Password');
 

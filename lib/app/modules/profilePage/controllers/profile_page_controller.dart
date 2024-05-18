@@ -1,23 +1,38 @@
+import 'dart:developer';
+
+import 'package:event_digital/app/data/model/model_profile.dart';
+import 'package:event_digital/app/data/model/model_user.dart';
+import 'package:event_digital/app/data/services/api_services.dart';
+import 'package:event_digital/app/data/services/user_services.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ProfilePageController extends GetxController {
-  //TODO: Implement ProfilePageController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  ModelProfile? profile;
 
   @override
   void onReady() {
+    getProfile();
     super.onReady();
   }
 
-  @override
-  void onClose() {
-    super.onClose();
+  getProfile() async {
+    log("getting profile...");
+    ModelUser? user = UserService.find.user;
+    profile = await ApiServices().getProfile(user?.id);
+    update();
   }
 
-  void increment() => count.value++;
+  updateImage() async {
+    final ImagePicker picker = ImagePicker();
+    // Pick an image.
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      ModelUser? user = UserService.find.user;
+      var data = await ApiServices().editProfilePhoto(image: image.path, id: user?.id);
+      if (data != null) {
+        getProfile();
+      }
+    }
+  }
 }
