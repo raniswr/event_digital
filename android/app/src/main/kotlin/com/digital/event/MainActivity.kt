@@ -1,4 +1,4 @@
-package com.event_digital.event_digital
+package com.digital.event
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -6,10 +6,13 @@ import 'package:get/get.dart';
 
 import 'app/routes/app_pages.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   Get.lazyPut(
     () => UserService(),
   );
+
   runApp(
     GetMaterialApp(
       title: "Application",

@@ -1,5 +1,9 @@
 import 'package:event_digital/app/data/model/model_detail.dart';
 import 'package:event_digital/app/data/services/user_services.dart';
+import 'package:event_digital/config/api_client.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_braintree/flutter_braintree.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
@@ -14,9 +18,39 @@ class CheckoutPageController extends GetxController {
   double? totalPricePoinFinal;
   bool isButtonClicked = false;
 
-  void buttonClick() {
-    isButtonClicked = true;
-    update();
+  pay(BuildContext context) async {
+    print("pay");
+    final request = BraintreeDropInRequest(
+      clientToken: "sandbox_hcj3d3tc_qn876f359gxd77qf",
+      collectDeviceData: true,
+      googlePaymentRequest: BraintreeGooglePaymentRequest(
+        totalPrice: "$totalPrice",
+        currencyCode: 'IDR',
+        billingAddressRequired: false,
+      ),
+    );
+
+    BraintreeDropInResult? result = await BraintreeDropIn.start(request);
+    if (result != null) {
+      EasyLoading.showSuccess("Successfully buy, lanjut simpan pesannan ke API dengan status PAID @rani");
+      // ModelPesanan pesanan = ModelPesanan(
+      //   id: 1,
+      //   status: 'paid',
+      //   user: mainProvider.user!,
+      //   paketWedding: paketWedding,
+      //   notes: eNotes.text,
+      //   createdAt: DateTime.now(),
+      //   updatedAt: DateTime.now(),
+      // );
+      // var createPesanan = await ApiPesanan.instance.createPesanan(pesanan);
+      // if (createPesanan) {
+      //   EasyLoading.showSuccess("Successfully buy");
+      // } else {
+      //   EasyLoading.showError("Failed to buy");
+      // }
+    } else {
+      EasyLoading.showError("Failed to buy");
+    }
   }
 
   // Future<String?> postTransaction(BuildContext context) async {
@@ -154,7 +188,7 @@ class CheckoutPageController extends GetxController {
       from = arguments?['from'];
 
       product?.forEach((element) {
-        subTotal += (element?.data?.attributes?.price ?? 0);
+        subTotal = subTotal + (element?.data?.attributes?.price ?? 0);
       });
       totalPrice = subTotal;
 
@@ -174,17 +208,4 @@ class CheckoutPageController extends GetxController {
 
     super.onReady();
   }
-
-  checkPoint(value) {
-    if (value < 2500) {
-      update();
-      return 0;
-    } else {
-      int count = value ~/ 2500;
-      update();
-      return count;
-    }
-  }
-
-  // ModelGetProfile? users;
 }

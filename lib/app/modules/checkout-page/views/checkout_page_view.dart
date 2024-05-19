@@ -152,7 +152,7 @@ class CheckoutPageView extends GetView<CheckoutPageController> {
                     side: const BorderSide(color: AppColors.gray),
                     value: controller.selectCheck,
                     onChanged: (bool? value) {
-                      controller.onClick(value);
+                      controller.onCheck(value);
                     },
                     controlAffinity: ListTileControlAffinity.leading,
                   ),
@@ -162,24 +162,7 @@ class CheckoutPageView extends GetView<CheckoutPageController> {
                         )
                       : GestureDetector(
                           onTap: () async {
-                            if (!controller.isButtonClicked) {
-                              controller.buttonClick();
-
-                              // await controller.getProfile(UserService.find.user?.id ?? '');
-                              // if (controller.isLogin == true) {
-                              //   var id = await controller.postTransaction(context);
-
-                              //   if (id != null) {
-                              //     if (controller.selectedIndex == 1) {
-                              //       await Get.toNamed(Routes.WEB_VIEW_PAGE);
-                              //     }
-                              //   }
-                              //   var sqlHelper = await SqlLiteHelper.instance.cartTable;
-                              //   await sqlHelper.deleteCartProduct();
-                              // } else {
-                              //   Get.toNamed(Routes.LOGIN_PAGE);
-                              // }
-                            }
+                            controller.pay(context);
                           },
                           child: Container(
                             height: 40,
@@ -190,7 +173,7 @@ class CheckoutPageView extends GetView<CheckoutPageController> {
                             ),
                             child: Center(
                               child: Text(
-                                controller.selectedIndex == 1 ? 'Bayar' : 'Pesan Sekarang',
+                                'Bayar',
                                 style: AppStyle.styleTextBody16(colorText: AppColors.white, fontWeight: FontWeight.w700),
                               ),
                             ),

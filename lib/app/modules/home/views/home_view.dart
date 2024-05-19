@@ -43,12 +43,12 @@ class HomeView extends GetView<HomeController> {
             child: Padding(
               padding: const EdgeInsets.only(right: 24.0),
               child: Container(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: Colors.grey[200],
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.person,
                   color: Colors.grey,
                 ),
@@ -168,13 +168,13 @@ class HomeView extends GetView<HomeController> {
                                 ),
                               )),
                     ).paddingAll(20)
-                  : SizedBox.shrink(),
-              DiscountBanner(),
+                  : const SizedBox.shrink(),
+              const DiscountBanner(),
               // PopularProducts(),
 
               // PopularProducts(),
               // recent orders -> show last 3
-              HomeHeader().marginOnly(top: 30),
+              const HomeHeader().marginOnly(top: 30),
               GetBuilder<HomeController>(builder: (controller) {
                 return SizedBox(
                     height: 800,
@@ -237,7 +237,7 @@ class HomeView extends GetView<HomeController> {
                                                 fit: BoxFit.cover,
                                               ),
                                             ).marginOnly(bottom: 10)
-                                          : SizedBox.shrink()
+                                          : const SizedBox.shrink()
                                     ],
                                   ),
 
@@ -294,7 +294,7 @@ class CartPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Let's order fresh items for you
-              Padding(
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.0),
                 child: Text("My Cart",
                     style: TextStyle(
@@ -308,7 +308,7 @@ class CartPage extends StatelessWidget {
                   padding: const EdgeInsets.all(12.0),
                   child: ListView.builder(
                     itemCount: controller.cartItems.length,
-                    padding: EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(12),
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(12.0),
@@ -388,8 +388,8 @@ class CartPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(28),
                         ),
                         padding: const EdgeInsets.all(12),
-                        child: Row(
-                          children: const [
+                        child: const Row(
+                          children: [
                             Text(
                               'Pay Now',
                               style: TextStyle(color: Colors.white),
