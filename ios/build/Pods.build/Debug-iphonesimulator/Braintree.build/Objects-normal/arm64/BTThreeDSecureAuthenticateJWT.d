@@ -1,0 +1,41 @@
+dependencies: \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/Braintree.build/module.modulemap \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeThreeDSecure/BTThreeDSecureAuthenticateJWT.m \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Target\ Support\ Files/Braintree/Braintree-prefix.pch \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeThreeDSecure/BTThreeDSecureAuthenticateJWT.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeThreeDSecure/BTThreeDSecureV2Provider.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeThreeDSecure/BTPaymentFlowDriver+ThreeDSecure_Internal.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeThreeDSecure/Public/BraintreeThreeDSecure/BraintreeThreeDSecure.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeThreeDSecure/Public/BraintreeThreeDSecure/BTPaymentFlowDriver+ThreeDSecure.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePaymentFlow/Public/BraintreePaymentFlow/BTPaymentFlowDriver.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePaymentFlow/Public/BraintreePaymentFlow/BraintreePaymentFlow.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BraintreeCore.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTAPIClient.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTClientMetadata.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTAppContextSwitcher.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTBinData.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTClientToken.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTConfiguration.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTJSON.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTEnums.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTErrors.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTHTTPErrors.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTLogger.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTPostalAddress.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTPaymentMethodNonce.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTPayPalIDToken.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTViewControllerPresentingDelegate.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTPreferredPaymentMethods.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTPreferredPaymentMethodsResult.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTURLUtils.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeThreeDSecure/BTThreeDSecureResult_Internal.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeThreeDSecure/Public/BraintreeThreeDSecure/BTThreeDSecureResult.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePaymentFlow/Public/BraintreePaymentFlow/BTPaymentFlowResult.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCard/Public/BraintreeCard/BraintreeCard.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCard/Public/BraintreeCard/BTCardClient.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCard/Public/BraintreeCard/BTCard.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCard/Public/BraintreeCard/BTCardNonce.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCard/Public/BraintreeCard/BTCardRequest.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCard/Public/BraintreeCard/BTThreeDSecureInfo.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCard/Public/BraintreeCard/BTAuthenticationInsight.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/BTAPIClient_Internal.h

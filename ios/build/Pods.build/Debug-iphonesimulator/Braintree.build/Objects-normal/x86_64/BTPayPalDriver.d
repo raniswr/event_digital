@@ -1,0 +1,43 @@
+dependencies: \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/Braintree.build/module.modulemap \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePayPal/BTPayPalDriver.m \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Target\ Support\ Files/Braintree/Braintree-prefix.pch \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePayPal/BTPayPalDriver_Internal.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePayPal/Public/BraintreePayPal/BraintreePayPal.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePayPal/Public/BraintreePayPal/BTPayPalDriver.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BraintreeCore.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTAPIClient.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTClientMetadata.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTAppContextSwitcher.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTBinData.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTClientToken.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTConfiguration.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTJSON.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTEnums.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTErrors.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTHTTPErrors.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTLogger.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTPostalAddress.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTPaymentMethodNonce.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTPayPalIDToken.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTViewControllerPresentingDelegate.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTPreferredPaymentMethods.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTPreferredPaymentMethodsResult.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/Public/BraintreeCore/BTURLUtils.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePayPal/Public/BraintreePayPal/BTPayPalCheckoutRequest.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePayPal/Public/BraintreePayPal/BTPayPalRequest.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePayPal/Public/BraintreePayPal/BTPayPalVaultRequest.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePayPal/BTPayPalRequest_Internal.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePayPal/BTPayPalAccountNonce_Internal.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePayPal/Public/BraintreePayPal/BTPayPalCreditFinancing.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePayPal/Public/BraintreePayPal/BTPayPalAccountNonce.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePayPal/BTPayPalCreditFinancing_Internal.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePayPal/BTPayPalCreditFinancingAmount_Internal.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePayPal/Public/BraintreePayPal/BTPayPalCreditFinancingAmount.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePayPal/BTPayPalCheckoutRequest_Internal.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/BTAPIClient_Internal.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/BTPaymentMethodNonceParser.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeCore/BTLogger_Internal.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePayPal/Public/BraintreePayPal/BTConfiguration+PayPal.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreePayPal/Public/BraintreePayPal/BTPayPalLineItem.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/Braintree/Braintree.framework/Headers/Braintree-Swift.h

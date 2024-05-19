@@ -1,0 +1,116 @@
+{
+  "main_library": {
+    "exported_symbols": [
+      {
+        "data": {
+          "global": [
+            "_BraintreeDropInVersionNumber",
+            "_BTGraphQLDeletePaymentMethodFromSingleUseToken",
+            "_BTDropInResultErrorDomain",
+            "_BraintreeDropInVersionString"
+          ],
+          "objc_class": [
+            "BTVaultManagementViewController",
+            "BTUIKCVVFrontVectorArtView",
+            "BTUIKUnknownCardVectorArtView",
+            "BTDropInLocalization",
+            "BTUIKSecurityCodeFormField",
+            "BTUIKHipercardVectorArtView",
+            "BTUIKLargeMasterCardVectorArtView",
+            "BTUIKUnionPayVectorArtView",
+            "BTUIKHiperVectorArtView",
+            "BTUIKLargeAmExVectorArtView",
+            "BTUIKLargeUnionPayVectorArtView",
+            "BTDropInResult",
+            "BTUIKLargeVectorArtView",
+            "BTUIKLargeVisaVectorArtView",
+            "BTUIKLargeDiscoverVectorArtView",
+            "BTDropInControllerPresentTransition",
+            "BTUIKLargeApplePayMarkVectorArtView",
+            "BTVaultedPaymentMethodsTableViewCell",
+            "PodsDummy_BraintreeDropIn",
+            "BTUIKCardExpirationValidator",
+            "BTDropInController",
+            "BTUIKCVVBackVectorArtView",
+            "BTUIKCardType",
+            "BTUIKAppearance",
+            "BTUIKPayPalWordmarkCompactVectorArtView",
+            "BTUIKFormField",
+            "BTUIKDiscoverVectorArtView",
+            "BTDropInPaymentSelectionCell",
+            "BTUIKLargeJCBVectorArtView",
+            "BTUIKMobileNumberFormField",
+            "BTUIKLargeHiperVectorArtView",
+            "BTUIKPayPalWordmarkVectorArtView",
+            "BTUIKJCBVectorArtView",
+            "BTUIKCardListLabel",
+            "BTUIKCardNumberFormField",
+            "BTDropInRequest",
+            "BTUIKPaymentOptionCardView",
+            "BTUIKMobileCountryCodeFormField",
+            "BTUIKBarButtonItem",
+            "BTDropInUICustomization",
+            "BTUIKInputAccessoryToolbar",
+            "BTUIKTextField",
+            "BTUIKPostalCodeFormField",
+            "BTCardFormViewController",
+            "BTUIKCollectionReusableView",
+            "BTUIKVectorArtView",
+            "BTPaymentSelectionViewController",
+            "BTUIKCardVectorArtView",
+            "BTUIKMasterCardVectorArtView",
+            "BTUIKLargeHipercardVectorArtView",
+            "BTDropInBaseViewController",
+            "BTUIKSwitchFormField",
+            "BTUIPaymentMethodCollectionViewCell",
+            "BTUIKVenmoMonogramCardView",
+            "BTPaymentSelectionHeaderView",
+            "BTUIKCardholderNameFormField",
+            "BTUIKUtil",
+            "BTUIKLargeDinersClubVectorArtView",
+            "BTUIKVisaVectorArtView",
+            "BTEnrollmentVerificationViewController",
+            "BTUIKLargeMaestroVectorArtView",
+            "BTUIKLargeUnknownCardVectorArtView",
+            "BTUIKVenmoWordmarkVectorArtView",
+            "BTUIKLargePayPalMonogramCardView",
+            "BTUIKAmExVectorArtView",
+            "BTDropInUIUtilities",
+            "BTUIKApplePayMarkVectorArtView",
+            "BTUIKCardExpiryFormat",
+            "BTUIKExpiryFormField",
+            "BTUIKLargeVenmoMonogramCardView",
+            "BTUIKPayPalMonogramCardView",
+            "BTUIKDinersClubVectorArtView",
+            "BTDropInControllerDismissTransition",
+            "BTUIKViewUtil",
+            "BTUIKMaestroVectorArtView"
+          ]
+        }
+      }
+    ],
+    "flags": [
+      {
+        "attributes": [
+          "not_app_extension_safe"
+        ]
+      }
+    ],
+    "install_names": [
+      {
+        "name": "@rpath/BraintreeDropIn.framework/BraintreeDropIn"
+      }
+    ],
+    "target_info": [
+      {
+        "min_deployment": "12",
+        "target": "x86_64-ios-simulator"
+      },
+      {
+        "min_deployment": "14",
+        "target": "arm64-ios-simulator"
+      }
+    ]
+  },
+  "tapi_tbd_version": 5
+}

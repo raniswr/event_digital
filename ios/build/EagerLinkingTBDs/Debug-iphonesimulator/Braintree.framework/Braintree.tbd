@@ -1,0 +1,178 @@
+{
+  "main_library": {
+    "exported_symbols": [
+      {
+        "data": {
+          "global": [
+            "_PayPalEnvironmentProduction",
+            "_BTPayPalCallbackURLHostAndPath",
+            "_BraintreeVersionString",
+            "_BTPayPalIDTokenErrorDomain",
+            "_$s9Braintree15PPDataCollectorC16clientMetadataIDyS2SSgFZ",
+            "_BTCardClientErrorDomain",
+            "_BTClientTokenKeyAuthorizationFingerprint",
+            "_BTVenmoAppSwitchReturnURLErrorDomain",
+            "_BTAPIClientErrorDomain",
+            "_$s9Braintree15PPDataCollectorC24generateClientMetadataID_13disableBeacon4dataS2SSg_SbSDyS2SGSgtFZTq",
+            "_BTAnalyticsServiceErrorDomain",
+            "_BTJSONErrorDomain",
+            "_$s9Braintree15PPDataCollectorC24generateClientMetadataIDSSyFZTq",
+            "_BTPayPalCallbackURLScheme",
+            "_$s9Braintree15PPDataCollectorC24generateClientMetadataID_13disableBeacon4dataS2SSg_SbSDyS2SGSgtFZ",
+            "_$s9Braintree15PPDataCollectorCN",
+            "_BTPaymentFlowDriverErrorDomain",
+            "_$s9Braintree15PPDataCollectorCMa",
+            "_BTHTTPJSONResponseBodyKey",
+            "_BTCardClientGraphQLTokenizeFeature",
+            "_$s9Braintree15PPDataCollectorC16clientMetadataIDyS2SSgFZTq",
+            "_BTClientTokenErrorDomain",
+            "_BTHTTPErrorDomain",
+            "_BTPayPalDriverErrorDomain",
+            "_PayPalEnvironmentMock",
+            "_BTThreeDSecureFlowErrorDomain",
+            "_BTApplePayErrorDomain",
+            "_$s9Braintree15PPDataCollectorCACycfc",
+            "_PayPalEnvironmentSandbox",
+            "_BraintreeVersionNumber",
+            "_BTClientTokenKeyVersion",
+            "_$s9Braintree15PPDataCollectorC24generateClientMetadataIDSSyFZ",
+            "_BTCustomerInputBraintreeValidationErrorsKey",
+            "_BTClientTokenKeyConfigURL",
+            "_$s9Braintree15PPDataCollectorC23collectPayPalDeviceDataSSyFZ",
+            "_$s9Braintree15PPDataCollectorCMn",
+            "_BTVenmoAppStoreUrl",
+            "_$s9Braintree15PPDataCollectorCfD",
+            "_$s9Braintree15PPDataCollectorCACycfC",
+            "_$s9Braintree15PPDataCollectorC23collectPayPalDeviceDataSSyFZTq",
+            "_BTThreeDSecureFlowInfoKey",
+            "_BTVenmoDriverErrorDomain",
+            "_BTThreeDSecureFlowValidationErrorsKey",
+            "_BTHTTPURLResponseKey"
+          ],
+          "objc_class": [
+            "BTPostalAddress",
+            "BTThreeDSecureV2ButtonCustomization",
+            "BTJSON",
+            "BTThreeDSecureInfo",
+            "BTLocalPaymentResult",
+            "BTPreferredPaymentMethods",
+            "BTPaymentFlowDriver",
+            "BTLogger",
+            "PodsDummy_Braintree",
+            "BTThreeDSecureV1UICustomization",
+            "BTThreeDSecureResult",
+            "BTPayPalCheckoutRequest",
+            "BTThreeDSecurePostalAddress",
+            "BTVenmoRequest",
+            "BTAnalyticsService",
+            "BTAuthenticationInsight",
+            "BTConfiguration",
+            "BTCardNonce",
+            "BTThreeDSecureRequest",
+            "BTPayPalIDToken",
+            "BTAnalyticsEvent",
+            "BTThreeDSecureV2BaseCustomization",
+            "BTPayPalCreditFinancing",
+            "BTAppContextSwitcher",
+            "BTPayPalCreditFinancingAmount",
+            "BTPaymentFlowResult",
+            "BTPaymentMethodNonce",
+            "_TtC9Braintree15PPDataCollector",
+            "BTVenmoAppSwitchReturnURL",
+            "BTCardCapabilities",
+            "BTThreeDSecureV2UICustomization",
+            "BTVenmoDriver",
+            "BTPayPalDriver",
+            "BTMutableClientMetadata",
+            "BTPayPalRequest",
+            "BTThreeDSecureV2ToolbarCustomization",
+            "BTBinData",
+            "BTPaymentMethodNonceParser",
+            "BTCard",
+            "BTThreeDSecureV2Provider",
+            "BTURLUtils",
+            "BTPayPalLineItem",
+            "BTClientMetadata",
+            "BTThreeDSecureAuthenticateJWT",
+            "BTPayPalAccountNonce",
+            "BTThreeDSecureV2TextBoxCustomization",
+            "BTThreeDSecureLookup",
+            "BTApplePayClient",
+            "BTCardClient",
+            "BTCardRequest",
+            "BTPayPalVaultRequest",
+            "BTApplePayCardNonce",
+            "BTHTTP",
+            "BTLocalPaymentRequest",
+            "BTAPIHTTP",
+            "BTKeychain",
+            "BTPaymentFlowRequest",
+            "BTAnalyticsSession",
+            "BTAPIClient",
+            "BTAPIPinnedCertificates",
+            "BTThreeDSecureV1BrowserSwitchHelper",
+            "BTClientToken",
+            "BTVenmoAccountNonce",
+            "BTThreeDSecureAdditionalInformation",
+            "BTThreeDSecureV2LabelCustomization",
+            "BTPreferredPaymentMethodsResult",
+            "BTGraphQLHTTP",
+            "BTAnalyticsMetadata",
+            "BTVenmoAppSwitchRequestURL"
+          ],
+          "objc_ivar": [
+            "BTClientMetadata._source",
+            "BTClientMetadata._integration",
+            "BTClientMetadata._sessionID"
+          ]
+        }
+      },
+      {
+        "data": {
+          "global": [
+            "_Swift50Overrides",
+            "_Swift51Overrides"
+          ]
+        },
+        "targets": [
+          "x86_64-ios-simulator"
+        ],
+        "text": {
+          "global": [
+            "__ZN5swift39swift51override_conformsToSwiftProtocolEPKNS_14TargetMetadataINS_9InProcessEEEPKNS_24TargetProtocolDescriptorIS1_EEN7__swift9__runtime4llvm9StringRefEPFPKNS_35TargetProtocolConformanceDescriptorIS1_EES4_S8_SC_E",
+            "__ZN5swift34swift50override_conformsToProtocolEPKNS_14TargetMetadataINS_9InProcessEEEPKNS_24TargetProtocolDescriptorIS1_EEPFPKNS_18TargetWitnessTableIS1_EES4_S8_E",
+            "__Z34_swiftoverride_class_getSuperclassPKN5swift14TargetMetadataINS_9InProcessEEE"
+          ]
+        }
+      }
+    ],
+    "flags": [
+      {
+        "attributes": [
+          "not_app_extension_safe"
+        ]
+      }
+    ],
+    "install_names": [
+      {
+        "name": "@rpath/Braintree.framework/Braintree"
+      }
+    ],
+    "swift_abi": [
+      {
+        "abi": 7
+      }
+    ],
+    "target_info": [
+      {
+        "min_deployment": "12",
+        "target": "x86_64-ios-simulator"
+      },
+      {
+        "min_deployment": "14",
+        "target": "arm64-ios-simulator"
+      }
+    ]
+  },
+  "tapi_tbd_version": 5
+}

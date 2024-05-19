@@ -1,0 +1,48 @@
+{
+  "" : {
+    "diagnostics" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/flutter_braintree-master.dia",
+    "emit-module-dependencies" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/flutter_braintree-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/flutter_braintree-master-emit-module.dia",
+    "swift-dependencies" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/flutter_braintree-master.swiftdeps"
+  },
+  "/Users/adisanjaya/.pub-cache/hosted/pub.dev/flutter_braintree-4.0.0/ios/Classes/BaseFlutterBraintreePlugin.swift" : {
+    "const-values" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/BaseFlutterBraintreePlugin.swiftconstvalues",
+    "dependencies" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/BaseFlutterBraintreePlugin.d",
+    "diagnostics" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/BaseFlutterBraintreePlugin.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/BaseFlutterBraintreePlugin.o",
+    "llvm-bc" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/BaseFlutterBraintreePlugin.bc",
+    "object" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/BaseFlutterBraintreePlugin.o",
+    "swift-dependencies" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/BaseFlutterBraintreePlugin.swiftdeps",
+    "swiftmodule" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/BaseFlutterBraintreePlugin~partial.swiftmodule"
+  },
+  "/Users/adisanjaya/.pub-cache/hosted/pub.dev/flutter_braintree-4.0.0/ios/Classes/FlutterBraintreeCustomPlugin.swift" : {
+    "const-values" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/FlutterBraintreeCustomPlugin.swiftconstvalues",
+    "dependencies" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/FlutterBraintreeCustomPlugin.d",
+    "diagnostics" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/FlutterBraintreeCustomPlugin.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/FlutterBraintreeCustomPlugin.o",
+    "llvm-bc" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/FlutterBraintreeCustomPlugin.bc",
+    "object" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/FlutterBraintreeCustomPlugin.o",
+    "swift-dependencies" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/FlutterBraintreeCustomPlugin.swiftdeps",
+    "swiftmodule" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/FlutterBraintreeCustomPlugin~partial.swiftmodule"
+  },
+  "/Users/adisanjaya/.pub-cache/hosted/pub.dev/flutter_braintree-4.0.0/ios/Classes/FlutterBraintreeDropInPlugin.swift" : {
+    "const-values" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/FlutterBraintreeDropInPlugin.swiftconstvalues",
+    "dependencies" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/FlutterBraintreeDropInPlugin.d",
+    "diagnostics" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/FlutterBraintreeDropInPlugin.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/FlutterBraintreeDropInPlugin.o",
+    "llvm-bc" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/FlutterBraintreeDropInPlugin.bc",
+    "object" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/FlutterBraintreeDropInPlugin.o",
+    "swift-dependencies" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/FlutterBraintreeDropInPlugin.swiftdeps",
+    "swiftmodule" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/FlutterBraintreeDropInPlugin~partial.swiftmodule"
+  },
+  "/Users/adisanjaya/.pub-cache/hosted/pub.dev/flutter_braintree-4.0.0/ios/Classes/PKPaymentNetwork+.swift" : {
+    "const-values" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/PKPaymentNetwork+.swiftconstvalues",
+    "dependencies" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/PKPaymentNetwork+.d",
+    "diagnostics" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/PKPaymentNetwork+.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/PKPaymentNetwork+.o",
+    "llvm-bc" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/PKPaymentNetwork+.bc",
+    "object" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/PKPaymentNetwork+.o",
+    "swift-dependencies" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/PKPaymentNetwork+.swiftdeps",
+    "swiftmodule" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/flutter_braintree.build/Objects-normal/x86_64/PKPaymentNetwork+~partial.swiftmodule"
+  }
+}

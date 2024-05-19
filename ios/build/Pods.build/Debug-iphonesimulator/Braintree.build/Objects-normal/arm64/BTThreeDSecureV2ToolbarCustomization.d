@@ -1,0 +1,37 @@
+dependencies: \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/Braintree.build/module.modulemap \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeThreeDSecure/V2UICustomization/BTThreeDSecureV2ToolbarCustomization.m \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Target\ Support\ Files/Braintree/Braintree-prefix.pch \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeThreeDSecure/V2UICustomization/BTThreeDSecureV2BaseCustomization_Internal.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeThreeDSecure/Public/BraintreeThreeDSecure/BraintreeThreeDSecure.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeThreeDSecure/Public/BraintreeThreeDSecure/BTThreeDSecureV2BaseCustomization.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Modules/module.modulemap \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/CardinalMobile.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/CardinalCMSDK.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/CardinalResponse.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/CardinalSession.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/Warning.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/DirectoryServerIDConst.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/CardinalSessionConfiguration.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/UiCustomization.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/ButtonCustomization.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/Customization.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/ToolbarCustomization.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/LabelCustomization.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/TextBoxCustomization.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/CardinalStepUpDelegate.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/CardinalEMVCoSDK.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/ThreeDS2Service.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/ConfigParameters.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/CardinalTransaction.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/Transaction.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/AuthenticationRequestParameters.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/ProgressDialog.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/ChallengeStatusReceiver.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/CompletionEvent.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/RuntimeErrorEvent.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/ProtocolErrorEvent.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/ErrorMessage.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/ChallengeParameters.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/XCFrameworkIntermediates/Braintree/ThreeDSecure/CardinalMobile.framework/Headers/CardinalThreeDS2ServiceImpl.h \
+  /Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/BraintreeThreeDSecure/Public/BraintreeThreeDSecure/BTThreeDSecureV2ToolbarCustomization.h

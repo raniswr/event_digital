@@ -1,0 +1,23 @@
+{
+  'version': 0,
+  'use-external-names': 'false',
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/Braintree/Braintree.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/Braintree.build/unextended-module.modulemap",
+    }]
+    },
+    {
+    'type': 'directory',
+    'name': "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Debug-iphonesimulator/Braintree/Braintree.framework/Headers"
+    'contents': [{
+      'type': 'file',
+      'name': "Braintree-Swift.h",
+      'external-contents': "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/Braintree.build/unextended-interface-header.h",
+    }]
+    }]
+}

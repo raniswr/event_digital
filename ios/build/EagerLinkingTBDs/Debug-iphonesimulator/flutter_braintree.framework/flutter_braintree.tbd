@@ -1,0 +1,136 @@
+{
+  "main_library": {
+    "exported_symbols": [
+      {
+        "data": {
+          "global": [
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC06returnE5Error6result5erroryyypSgXE_s0H0_ptF",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC16isHandlingResultSbvMTq",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC16isHandlingResultSbvpfi",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC4bool3for2inSbSgSS_So0D10MethodCallCtFTq",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC13setupApplePay33_ACC47D730FF8CB5F5DF0829AE3824C4ELL0A6ResultyyypSgXE_tF",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginCMa",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginCfD",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC15completionBlock33_ACC47D730FF8CB5F5DF0829AE3824C4ELLyypSgcSgvpfi",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC21buildPaymentNonceDict5nonceSDySSypSgGSo015BTPaymentMethodI0CSg_tFTq",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC31returnAuthorizationMissingError6resultyyypSgXE_tF",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginCACycfc",
+            "_$s17flutter_braintree28FlutterBraintreeCustomPluginC8register4withySo0cF9Registrar_p_tFZ",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC12applePayInfo33_ACC47D730FF8CB5F5DF0829AE3824C4ELLSDySSypGvM",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC8register4withySo0cG9Registrar_p_tFZ",
+            "_$s17flutter_braintree28FlutterBraintreeCustomPluginC12handleResult031_B098D45C7BB1BC5023D540FA2860D2P0LL5nonce5error0aH0ySo20BTPaymentMethodNonceCSg_s5Error_pSgyypSgXEtF",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC6string3for2inSSSgSS_So0D10MethodCallCtFTq",
+            "_$sSo16PKPaymentNetworka17flutter_braintreeE012mapRequestedB08rawValueABSgSi_tFZ",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC13authorization33_ACC47D730FF8CB5F5DF0829AE3824C4ELLSSSgvs",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC13authorization33_ACC47D730FF8CB5F5DF0829AE3824C4ELLSSSgvpfi",
+            "_$s17flutter_braintree23makePaymentSummaryItems4fromSaySo09PKPaymentE4ItemCGSgSDySSypG_tF",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC4dict3for2inSDySSypGSgSS_So0D10MethodCallCtF",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginCACycfC",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC34paymentAuthorizationViewController_19didAuthorizePayment10completionySo09PKPaymentijK0C_So0P0CySo0pI6StatusVctF",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC4dict3for2inSDySSypGSgSS_So0D10MethodCallCtFTq",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC20handleApplePayResult33_ACC47D730FF8CB5F5DF0829AE3824C4ELL_0aK0ySo20BTPaymentMethodNonceC_yypSgXEtF",
+            "_$s17flutter_braintree28FlutterBraintreeCustomPluginCN",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC16onLookupComplete_12lookupResult4nextySo21BTThreeDSecureRequestC_So0noL0CyyctFTq",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC22returnAlreadyOpenError6resultyyypSgXE_tFTq",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC16isHandlingResultSbvpWvd",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC12handleResult33_ACC47D730FF8CB5F5DF0829AE3824C4ELL6result5error0aI010deviceDataySo06BTDropfI0CSg_s5Error_pSgyypSgXESSSgtF",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC43paymentAuthorizationViewControllerDidFinishyySo09PKPaymentijK0CF",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC13authorization33_ACC47D730FF8CB5F5DF0829AE3824C4ELLSSSgvg",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC06returnE5Error6result5erroryyypSgXE_s0H0_ptFTq",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC31returnAuthorizationMissingError6resultyyypSgXE_tFTq",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC16getAuthorization4callSSSgSo0D10MethodCallC_tFTq",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC15completionBlock33_ACC47D730FF8CB5F5DF0829AE3824C4ELLyypSgcSgvg",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC15completionBlock33_ACC47D730FF8CB5F5DF0829AE3824C4ELLyypSgcSgvM",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC16getAuthorization4callSSSgSo0D10MethodCallC_tF",
+            "_flutter_braintreeVersionNumber",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC6string3for2inSSSgSS_So0D10MethodCallCtF",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC12applePayInfo33_ACC47D730FF8CB5F5DF0829AE3824C4ELLSDySSypGvg",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC12applePayInfo33_ACC47D730FF8CB5F5DF0829AE3824C4ELLSDySSypGvs",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginCN",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginCACycfC",
+            "_$s17flutter_braintree28FlutterBraintreeCustomPluginC13paymentDriver_22requestsPresentationOfyyp_So16UIViewControllerCtF",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC16isHandlingResultSbvpMV",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginCfD",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC16isHandlingResultSbvM",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginCACycfc",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC12applePayInfo33_ACC47D730FF8CB5F5DF0829AE3824C4ELLSDySSypGvpfi",
+            "_$s17flutter_braintree28FlutterBraintreeCustomPluginCfD",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginCN",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC16isHandlingResultSbvs",
+            "_$s17flutter_braintree28FlutterBraintreeCustomPluginCMa",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginCMn",
+            "_flutter_braintreeVersionString",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC16isHandlingResultSbvgTq",
+            "_$s17flutter_braintree28FlutterBraintreeCustomPluginC13paymentDriver_19requestsDismissalOfyyp_So16UIViewControllerCtF",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginCMn",
+            "_$s17flutter_braintree28FlutterBraintreeCustomPluginC6handle_6resultySo0C10MethodCallC_yypSgctF",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginCMa",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC4bool3for2inSbSgSS_So0D10MethodCallCtF",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC16isHandlingResultSbvsTq",
+            "_$s17flutter_braintree28FlutterBraintreeCustomPluginCACycfC",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC34paymentAuthorizationViewController_19didAuthorizePayment7handlerySo09PKPaymentijK0C_So0P0CySo0pI6ResultCctF",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC16isHandlingResultSbvg",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC15completionBlock33_ACC47D730FF8CB5F5DF0829AE3824C4ELLyypSgcSgvs",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC21buildPaymentNonceDict5nonceSDySSypSgGSo015BTPaymentMethodI0CSg_tF",
+            "_$s17flutter_braintree28FlutterBraintreeCustomPluginC13paymentDriver_19requestsDismissalOfyyp_So16UIViewControllerCtFTq",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC6handle_6resultySo0C10MethodCallC_yypSgctFTq",
+            "_$s17flutter_braintree26BaseFlutterBraintreePluginC22returnAlreadyOpenError6resultyyypSgXE_tF",
+            "_$s17flutter_braintree28FlutterBraintreeCustomPluginCACycfc",
+            "_$s17flutter_braintree28FlutterBraintreeCustomPluginC6handle_6resultySo0C10MethodCallC_yypSgctFTq",
+            "_$s17flutter_braintree28FlutterBraintreeCustomPluginCMn",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC16onLookupComplete_12lookupResult4nextySo21BTThreeDSecureRequestC_So0noL0CyyctF",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC13authorization33_ACC47D730FF8CB5F5DF0829AE3824C4ELLSSSgvM",
+            "_$s17flutter_braintree28FlutterBraintreeCustomPluginC13paymentDriver_22requestsPresentationOfyyp_So16UIViewControllerCtFTq",
+            "_$s17flutter_braintree28FlutterBraintreeDropInPluginC6handle_6resultySo0C10MethodCallC_yypSgctF"
+          ],
+          "objc_class": [
+            "_TtC17flutter_braintree28FlutterBraintreeCustomPlugin",
+            "_TtC17flutter_braintree28FlutterBraintreeDropInPlugin",
+            "_TtC17flutter_braintree26BaseFlutterBraintreePlugin",
+            "FlutterBraintreePlugin",
+            "PodsDummy_flutter_braintree"
+          ]
+        }
+      },
+      {
+        "data": {
+          "global": [
+            "_Swift51Overrides",
+            "_Swift50Overrides"
+          ]
+        },
+        "targets": [
+          "x86_64-ios-simulator"
+        ]
+      }
+    ],
+    "flags": [
+      {
+        "attributes": [
+          "not_app_extension_safe"
+        ]
+      }
+    ],
+    "install_names": [
+      {
+        "name": "@rpath/flutter_braintree.framework/flutter_braintree"
+      }
+    ],
+    "swift_abi": [
+      {
+        "abi": 7
+      }
+    ],
+    "target_info": [
+      {
+        "min_deployment": "12",
+        "target": "x86_64-ios-simulator"
+      },
+      {
+        "min_deployment": "14",
+        "target": "arm64-ios-simulator"
+      }
+    ]
+  },
+  "tapi_tbd_version": 5
+}

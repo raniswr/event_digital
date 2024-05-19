@@ -1,0 +1,18 @@
+{
+  "" : {
+    "diagnostics" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/Braintree.build/Objects-normal/x86_64/Braintree-master.dia",
+    "emit-module-dependencies" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/Braintree.build/Objects-normal/x86_64/Braintree-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/Braintree.build/Objects-normal/x86_64/Braintree-master-emit-module.dia",
+    "swift-dependencies" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/Braintree.build/Objects-normal/x86_64/Braintree-master.swiftdeps"
+  },
+  "/Users/adisanjaya/Documents/rani/event_digital/ios/Pods/Braintree/Sources/PayPalDataCollector/Public/PayPalDataCollector/PPDataCollector.swift" : {
+    "const-values" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/Braintree.build/Objects-normal/x86_64/PPDataCollector.swiftconstvalues",
+    "dependencies" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/Braintree.build/Objects-normal/x86_64/PPDataCollector.d",
+    "diagnostics" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/Braintree.build/Objects-normal/x86_64/PPDataCollector.dia",
+    "index-unit-output-path" : "/Pods.build/Debug-iphonesimulator/Braintree.build/Objects-normal/x86_64/PPDataCollector.o",
+    "llvm-bc" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/Braintree.build/Objects-normal/x86_64/PPDataCollector.bc",
+    "object" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/Braintree.build/Objects-normal/x86_64/PPDataCollector.o",
+    "swift-dependencies" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/Braintree.build/Objects-normal/x86_64/PPDataCollector.swiftdeps",
+    "swiftmodule" : "/Users/adisanjaya/Documents/rani/event_digital/ios/build/Pods.build/Debug-iphonesimulator/Braintree.build/Objects-normal/x86_64/PPDataCollector~partial.swiftmodule"
+  }
+}
