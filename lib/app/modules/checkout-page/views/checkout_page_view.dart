@@ -1,3 +1,4 @@
+import 'package:event_digital/core/assets.dart';
 import 'package:event_digital/core/colors.dart';
 import 'package:event_digital/core/style.dart';
 import 'package:flutter/material.dart';
@@ -101,6 +102,65 @@ class CheckoutPageView extends GetView<CheckoutPageController> {
                       ),
                     ],
                   ).marginSymmetric(horizontal: 20),
+                  Text(
+                    'Start Date',
+                    style: AppStyle.styleTextBody16(fontWeight: FontWeight.w600),
+                  ).marginSymmetric(horizontal: 20),
+                  TextField(
+                    onTap: () {
+                      controller.selectDateStart(context);
+                    },
+                    decoration: AppStyle.inputDecorationFloating(
+                      "Start Date",
+                      suffixIcon: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            controller.selectDateStart(context);
+                          },
+                          child: Icon(
+                            Icons.date_range,
+                          ),
+                        ),
+                      ),
+                    ),
+                    controller: controller.startDateController,
+                    readOnly: true,
+                  ).marginSymmetric(horizontal: 20),
+                  Text(
+                    'End Date',
+                    style: AppStyle.styleTextBody16(fontWeight: FontWeight.w600),
+                  ).marginSymmetric(horizontal: 20),
+                  TextField(
+                    onTap: () {
+                      controller.selectDateEnd(context);
+                    },
+                    decoration: AppStyle.inputDecorationFloating(
+                      "End Date",
+                      suffixIcon: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: GestureDetector(
+                          onTap: () {
+                            controller.selectDateEnd(context);
+                          },
+                          child: Icon(
+                            Icons.date_range,
+                          ),
+                        ),
+                      ),
+                    ),
+                    controller: controller.endDateController,
+                    readOnly: true,
+                  ).marginSymmetric(horizontal: 20),
+                  Text(
+                    'Catatan ',
+                    style: AppStyle.styleTextBody16(fontWeight: FontWeight.w600),
+                  ).marginOnly(left: 5, top: 10).marginSymmetric(horizontal: 20),
+                  TextField(
+                    decoration: AppStyle.inputDecorationFloating("Catatan"),
+                    controller: controller.notesController,
+                    maxLines: 3,
+                  ).marginOnly(top: 5).marginSymmetric(horizontal: 20),
                   const Divider(
                     thickness: 1,
                     color: AppColors.dividerColor,
@@ -151,6 +211,7 @@ class CheckoutPageView extends GetView<CheckoutPageController> {
                     ),
                     side: const BorderSide(color: AppColors.gray),
                     value: controller.selectCheck,
+                    activeColor: AppColors.blue,
                     onChanged: (bool? value) {
                       controller.onCheck(value);
                     },
@@ -169,7 +230,7 @@ class CheckoutPageView extends GetView<CheckoutPageController> {
                             width: double.infinity,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(18),
-                              color: AppColors.primary,
+                              color: AppColors.blue,
                             ),
                             child: Center(
                               child: Text(

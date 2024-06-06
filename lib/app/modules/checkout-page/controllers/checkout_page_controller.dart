@@ -1,6 +1,9 @@
 import 'package:event_digital/app/data/model/model_detail.dart';
+import 'package:event_digital/app/data/model/model_pesanan.dart';
+import 'package:event_digital/app/data/services/api_services.dart';
 import 'package:event_digital/app/data/services/user_services.dart';
 import 'package:event_digital/config/api_client.dart';
+import 'package:event_digital/core/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_braintree/flutter_braintree.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -17,40 +20,115 @@ class CheckoutPageController extends GetxController {
   double? totalPricePoin;
   double? totalPricePoinFinal;
   bool isButtonClicked = false;
+  TextEditingController startDateController = TextEditingController();
+  TextEditingController endDateController = TextEditingController();
+  TextEditingController notesController = TextEditingController();
+
+  Future<void> selectDateStart(BuildContext context) async {
+    DateTime now = DateTime.now();
+    DateTime lastDate = DateTime(now.year + 3, now.month, now.day, 23, 59, 59);
+
+    DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: now,
+      firstDate: DateTime(1900),
+      lastDate: lastDate,
+      builder: (BuildContext context, Widget? child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            primaryColor: AppColors.blue,
+            colorScheme: const ColorScheme.light(primary: AppColors.blue),
+            buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
+          ),
+          child: child!,
+        );
+      },
+    );
+    if (picked != null) {
+      String formattedDate = DateFormat('yyyy-MM-dd').format(picked);
+      startDateController.text = formattedDate;
+    }
+  }
+
+  List<String> productIdsAsString = [];
+
+  List<String> getProductIdsAsString(List<ModelDetail?>? product) {
+    // Check if the product list is not null
+    if (product == null) {
+      return []; // Return an empty list if product is null
+    }
+
+    // Use map() to transform each ModelDetail? object into its ID
+    return product
+        .where((detail) => detail != null) // Filter out null elements
+        .map((detail) => detail!.data?.id) // Map each ModelDetail? to its ID
+        .where((id) => id != null) // Filter out null IDs
+        .map((id) => id.toString()) // Convert each ID to a string
+        .toList(); // Convert to a list
+  }
+
+  Future<void> selectDateEnd(BuildContext context) async {
+    DateTime now = DateTime.now();
+    DateTime lastDate = DateTime(now.year + 3, now.month, now.day, 23, 59, 59);
+
+    DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: now,
+      firstDate: DateTime(1900),
+      lastDate: lastDate,
+      builder: (BuildContext context, Widget? child) {
+        return Theme(
+          data: ThemeData.light().copyWith(
+            primaryColor: AppColors.blue,
+            colorScheme: const ColorScheme.light(primary: AppColors.blue),
+            buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
+          ),
+          child: child!,
+        );
+      },
+    );
+    if (picked != null) {
+      String formattedDate = DateFormat('yyyy-MM-dd').format(picked);
+      endDateController.text = formattedDate;
+    }
+  }
 
   pay(BuildContext context) async {
-    print("pay");
-    final request = BraintreeDropInRequest(
-      clientToken: "sandbox_hcj3d3tc_qn876f359gxd77qf",
-      collectDeviceData: true,
-      googlePaymentRequest: BraintreeGooglePaymentRequest(
-        totalPrice: "$totalPrice",
-        currencyCode: 'IDR',
-        billingAddressRequired: false,
-      ),
-    );
+    // print("pay");
+    // final request = BraintreeDropInRequest(
+    //   clientToken: "sandbox_hcj3d3tc_qn876f359gxd77qf",
+    //   collectDeviceData: true,
+    //   googlePaymentRequest: BraintreeGooglePaymentRequest(
+    //     totalPrice: "$totalPrice",
+    //     currencyCode: 'IDR',
+    //     billingAddressRequired: false,
+    //   ),
+    // );
 
-    BraintreeDropInResult? result = await BraintreeDropIn.start(request);
-    if (result != null) {
-      EasyLoading.showSuccess("Successfully buy, lanjut simpan pesannan ke API dengan status PAID @rani");
-      // ModelPesanan pesanan = ModelPesanan(
-      //   id: 1,
-      //   status: 'paid',
-      //   user: mainProvider.user!,
-      //   paketWedding: paketWedding,
-      //   notes: eNotes.text,
-      //   createdAt: DateTime.now(),
-      //   updatedAt: DateTime.now(),
-      // );
-      // var createPesanan = await ApiPesanan.instance.createPesanan(pesanan);
-      // if (createPesanan) {
-      //   EasyLoading.showSuccess("Successfully buy");
-      // } else {
-      //   EasyLoading.showError("Failed to buy");
-      // }
-    } else {
-      EasyLoading.showError("Failed to buy");
-    }
+    // BraintreeDropInResult? result = await BraintreeDropIn.start(request);
+    // if (result != null) {
+    //   // EasyLoading.showSuccess("Successfully buy, lanjut simpan pesannan ke API dengan status PAID @rani");
+
+    //   var dataLogin = await UserService.find.getLocalUser();
+    //   DataPesanan data = DataPesanan(
+    //     usersPermissionsUser: '${dataLogin?.id}',
+    //     products: productIdsAsString,
+    //     status: "paid",
+    //     dueDate: startDateController.text,
+    //     endDate: endDateController.text,
+    //     notes: notesController.text,
+    //   );
+
+    //   ModelPesanan pesanan = ModelPesanan(data: data);
+    //   var createPesanan = await ApiServices.postTransaction(modelCard: pesanan);
+    //   if (createPesanan == true) {
+    //     EasyLoading.showSuccess("Successfully buy");
+    //   } else {
+    //     EasyLoading.showError("Failed to buy");
+    //   }
+    // } else {
+    //   EasyLoading.showError("Failed to buy");
+    // }
   }
 
   // Future<String?> postTransaction(BuildContext context) async {
@@ -197,15 +275,7 @@ class CheckoutPageController extends GetxController {
       // log(e.toString());
     }
 
-    var dataLogin = await UserService.find.getLocalUser();
-
-    if (dataLogin != null) {
-      // idUser = UserService.find.user?.id ?? '';
-      // isLogin = UserService.find.user?.isLogin;
-      // await getProfile(UserService.find.user?.id ?? '');
-      // update();
-    }
-
+    productIdsAsString = getProductIdsAsString(product);
     super.onReady();
   }
 }

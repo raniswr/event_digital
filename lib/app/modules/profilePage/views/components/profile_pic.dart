@@ -21,20 +21,23 @@ class ProfilePic extends StatelessWidget {
               fit: StackFit.expand,
               clipBehavior: Clip.none,
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(100),
-                  child: Image.network(
-                    controller.profile?.image ?? '',
-                    width: 60,
-                    height: 60,
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
-                      return const CircleAvatar(
-                        backgroundImage: AssetImage(
-                          "assets/images/Profile Image.png",
-                        ),
-                      );
-                    },
+                Container(
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(100), color: Color.fromARGB(255, 240, 234, 234)),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Image.network(
+                      controller.profile?.image ?? '',
+                      width: 60,
+                      height: 60,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return const Icon(
+                          Icons.person,
+                          size: 80,
+                          color: Colors.grey,
+                        );
+                      },
+                    ),
                   ),
                 ),
                 Positioned(

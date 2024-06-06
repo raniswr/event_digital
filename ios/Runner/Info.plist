@@ -34,6 +34,19 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+    <dict>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleURLName</key>
+        <string>com.your-company.your-app.payments</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>com.your-company.your-app.payments</string>
+        </array>
+    </dict>
+</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -60,6 +73,21 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.digital.event.braintree</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+  	<string>To use photo library</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.your-company.your-app.payments</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.your-company.your-app.payments</string>
 			</array>
 		</dict>
 	</array>

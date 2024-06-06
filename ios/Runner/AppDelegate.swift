@@ -1,4 +1,5 @@
 import UIKit
+import Braintree
 import Flutter
 
 @UIApplicationMain
@@ -8,6 +9,7 @@ import Flutter
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     GeneratedPluginRegistrant.register(with: self)
+    BTAppContextSwitcher.setReturnURLScheme("com.digital.event.event_digital.payments")
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 }

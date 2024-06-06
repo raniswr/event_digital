@@ -1,23 +1,16 @@
 import 'package:dynamic_height_grid_view/dynamic_height_grid_view.dart';
-import 'package:event_digital/app/component/grocery_item_tile.dart';
-import 'package:event_digital/app/components/categories.dart';
 import 'package:event_digital/app/components/discount_banner.dart';
 import 'package:event_digital/app/components/home_header.dart';
 import 'package:event_digital/app/components/icon_btn_with_counter.dart';
-import 'package:event_digital/app/components/popular_product.dart';
-import 'package:event_digital/app/data/model/model_detail.dart';
 import 'package:event_digital/app/data/model/model_product.dart';
-import 'package:event_digital/app/data/services/user_services.dart';
 import 'package:event_digital/app/routes/app_pages.dart';
 import 'package:event_digital/core/colors.dart';
-import 'package:event_digital/core/style.dart';
 import 'package:flutter/material.dart';
-import 'package:extended_image/extended_image.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
 import '../controllers/home_controller.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+// import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -30,31 +23,41 @@ class HomeView extends GetView<HomeController> {
         elevation: 0,
         leading: IconBtnWithCounter(
           svgSrc: "assets/icons/Bell.svg",
-          numOfitem: 3,
+          // numOfitem: 3,
           press: () {},
         ).marginOnly(top: 5),
         centerTitle: false,
         actions: [
           const SizedBox(width: 8),
-          GestureDetector(
-            onTap: () {
-              Get.toNamed(Routes.PROFILE_PAGE);
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(right: 24.0),
+          GetBuilder<HomeController>(builder: (controller) {
+            return GestureDetector(
+              onTap: () {
+                Get.toNamed(Routes.PROFILE_PAGE);
+              },
               child: Container(
-                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   color: Colors.grey[200],
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: const Icon(
-                  Icons.person,
-                  color: Colors.grey,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.network(
+                    controller.profile?.image ?? '',
+                    width: 60,
+                    height: 80,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return const Icon(
+                        Icons.person,
+                        size: 20,
+                        color: Colors.grey,
+                      );
+                    },
+                  ),
                 ),
-              ),
-            ),
-          ),
+              ).marginOnly(right: 20).marginSymmetric(horizontal: 20),
+            );
+          }),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -82,7 +85,6 @@ class HomeView extends GetView<HomeController> {
             children: [
               const SizedBox(height: 48),
 
-              // good morning bro
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.0),
                 child: Text(
@@ -141,27 +143,22 @@ class HomeView extends GetView<HomeController> {
                                 child: Column(
                                   children: [
                                     Container(
-                                      padding: const EdgeInsets.all(16),
-                                      height: 66,
-                                      width: 66,
-                                      decoration: BoxDecoration(
-                                        color: AppColors.blue.withOpacity(0.3),
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Icon(
-                                        controller.allCategory?.data?[index].attributes?.name == 'Social'
-                                            ? Icons.people_outline
-                                            : controller.allCategory?.data?[index].attributes?.name == 'Corporate'
-                                                ? Icons.corporate_fare_outlined
-                                                : controller.allCategory?.data?[index].attributes?.name == 'Entertainment'
-                                                    ? Icons.event
-                                                    : controller.allCategory?.data?[index].attributes?.name == 'Charty'
-                                                        ? Icons.logo_dev
-                                                        : Icons.sports_baseball_outlined,
-                                        color: AppColors.blue,
-                                        size: 30,
-                                      ),
-                                    ),
+                                        padding: const EdgeInsets.all(16),
+                                        height: 66,
+                                        width: 66,
+                                        decoration: BoxDecoration(
+                                          color: AppColors.blue.withOpacity(0.3),
+                                          borderRadius: BorderRadius.circular(10),
+                                        ),
+                                        child: Image.asset(controller.allCategory?.data?[index].attributes?.name == 'Social'
+                                            ? "assets/images/social-care.png"
+                                            : controller.allCategory?.data?[index].attributes?.name == 'Profesional'
+                                                ? "assets/images/team.png"
+                                                : controller.allCategory?.data?[index].attributes?.name == 'Cultural'
+                                                    ? "assets/images/cultural.png"
+                                                    : controller.allCategory?.data?[index].attributes?.name == 'Cultural'
+                                                        ? "assets/images/solidarity.png"
+                                                        : "assets/images/sports.png")),
                                     const SizedBox(height: 4),
                                     Text(controller.allCategory?.data?[index].attributes?.name ?? '', textAlign: TextAlign.center)
                                   ],
@@ -178,7 +175,7 @@ class HomeView extends GetView<HomeController> {
               GetBuilder<HomeController>(builder: (controller) {
                 return SizedBox(
                     height: 800,
-                    width: 500,
+                    width: double.infinity,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 30),
                       child: DynamicHeightGridView(
@@ -222,7 +219,7 @@ class HomeView extends GetView<HomeController> {
                                   //           ?
                                   Column(
                                     children: [
-                                      productImage != null
+                                      productImage?.data?.first.attributes?.url != null
                                           ? ClipRRect(
                                               borderRadius: const BorderRadius.only(
                                                 topLeft: Radius.circular(16.0),
@@ -230,10 +227,9 @@ class HomeView extends GetView<HomeController> {
                                               ),
                                               child: Image.network(
                                                 // productImage,
-                                                '${productImage.data?.first.attributes?.url}',
-                                                // 'http://localhost:1337/uploads/thumbnail_image_bd8b1b9dd6.jpeg',
+                                                '${productImage?.data?.first.attributes?.url}',
                                                 width: double.infinity,
-                                                height: 160,
+                                                height: kIsWeb ? 250 : 160,
                                                 fit: BoxFit.cover,
                                               ),
                                             ).marginOnly(bottom: 10)

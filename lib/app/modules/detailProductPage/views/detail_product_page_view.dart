@@ -202,7 +202,7 @@ showModal(context) {
     builder: (BuildContext context) {
       return GetBuilder<DetailProductPageController>(builder: (controller) {
         return Container(
-          height: 280,
+          height: 220,
           decoration: const BoxDecoration(
             // color: AppColors.bgBottomSheets,
             borderRadius: BorderRadius.only(
@@ -228,15 +228,15 @@ showModal(context) {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(10), // Adjust the radius as needed
-                              child: Image.asset(
-                                'assets/images/ps4_console_white_1.png',
-                                width: 93,
-                                height: 93,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
+                            // ClipRRect(
+                            //   borderRadius: BorderRadius.circular(10), // Adjust the radius as needed
+                            //   child: Image.asset(
+                            //     'assets/images/ps4_console_white_1.png',
+                            //     width: 93,
+                            //     height: 93,
+                            //     fit: BoxFit.cover,
+                            //   ),
+                            // ),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -256,7 +256,7 @@ showModal(context) {
                           ],
                         ),
                       ),
-                    ).marginAll(20),
+                    ).marginAll(10),
                     GetBuilder<DetailProductPageController>(builder: (controller) {
                       return Align(
                           alignment: Alignment.bottomCenter,
@@ -427,7 +427,7 @@ showAlertDialog(BuildContext context) {
     content: Text(
       "Produk Berhasil disimpan dikeranjang!",
       textAlign: TextAlign.center,
-      style: AppStyle.styleTextBody20(fontWeight: FontWeight.w700, colorText: AppColors.yellow),
+      style: AppStyle.styleTextBody20(fontWeight: FontWeight.w700, colorText: AppColors.blue),
     ),
   );
 

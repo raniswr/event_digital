@@ -1,19 +1,28 @@
 import 'package:event_digital/app/data/model/model_category.dart';
 import 'package:event_digital/app/data/model/model_product.dart';
+import 'package:event_digital/app/data/model/model_user.dart';
 import 'package:event_digital/app/data/services/api_services.dart';
 import 'package:event_digital/app/data/services/user_services.dart';
 import 'package:event_digital/core/assets.dart';
+import 'package:event_digital/app/data/model/model_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 class HomeController extends GetxController {
   String? selectedCategory;
+  ModelProfile? profile;
 
   void setCategory(String name) {
     selectedCategory = name;
     update();
     getFilterProduct();
+  }
+
+  getProfile() async {
+    ModelUser? user = UserService.find.user;
+    profile = await ApiServices().getProfile(user?.id);
+    update();
   }
 
   final List _shopItems = const [
@@ -91,6 +100,7 @@ class HomeController extends GetxController {
   void onReady() async {
     getAllProduct();
     getCategory();
+    getProfile();
 
     var dataLogin = await UserService.find.getLocalUser();
 

@@ -15,7 +15,7 @@ class LoginPageView extends GetView<LoginPageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: AppColors.white,
       body: GetBuilder<LoginPageController>(builder: (controller) {
         return SafeArea(
           child: Center(
@@ -24,10 +24,10 @@ class LoginPageView extends GetView<LoginPageController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: 50),
-                  const Icon(
-                    Icons.lock,
-                    color: Color.fromARGB(214, 44, 98, 224),
-                    size: 100,
+                  Image.asset(
+                    "assets/images/login.jpg",
+                    width: 320,
+                    height: 320,
                   ),
                   const SizedBox(height: 50),
                   Text(
@@ -43,7 +43,7 @@ class LoginPageView extends GetView<LoginPageController> {
                   // username textfield
                   MyTextField(
                     controller: controller.usernameController,
-                    hintText: 'Username',
+                    hintText: 'Email',
                     obscureText: false,
                   ),
 
@@ -118,8 +118,8 @@ class LoginPageView extends GetView<LoginPageController> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SquareTile(imagePath: 'assets/images/google.png'),
-                      SizedBox(width: 25),
-                      SquareTile(imagePath: 'assets/images/apple.png'),
+                      // SizedBox(width: 25),
+                      // SquareTile(imagePath: 'assets/images/apple.png'),
                     ],
                   ),
 
