@@ -78,6 +78,15 @@ class ProfilePageView extends GetView<ProfilePageController> {
                   controller.deleteAkun();
                 },
               ),
+
+              // ProfileMenu(
+              //   text: "Master Sepeda",
+              //   icon: "assets/icons/User Icon.svg",
+
+              //   press: () => {
+              //     // Get.toNamed(Routes),
+              //   },
+              // ),
             ],
           ),
         ),
