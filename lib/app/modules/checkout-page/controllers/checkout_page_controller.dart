@@ -2,6 +2,7 @@ import 'package:event_digital/app/data/model/model_detail.dart';
 import 'package:event_digital/app/data/model/model_pesanan.dart';
 import 'package:event_digital/app/data/services/api_services.dart';
 import 'package:event_digital/app/data/services/user_services.dart';
+import 'package:event_digital/app/routes/app_pages.dart';
 import 'package:event_digital/config/api_client.dart';
 import 'package:event_digital/core/colors.dart';
 import 'package:flutter/material.dart';
@@ -94,40 +95,70 @@ class CheckoutPageController extends GetxController {
   }
 
   pay(BuildContext context) async {
-    // print("pay");
-    // final request = BraintreeDropInRequest(
-    //   clientToken: "sandbox_hcj3d3tc_qn876f359gxd77qf",
-    //   collectDeviceData: true,
-    //   googlePaymentRequest: BraintreeGooglePaymentRequest(
-    //     totalPrice: "$totalPrice",
-    //     currencyCode: 'IDR',
-    //     billingAddressRequired: false,
-    //   ),
+    print("pay");
+    final request = BraintreeDropInRequest(
+      clientToken: "sandbox_hcj3d3tc_qn876f359gxd77qf",
+      collectDeviceData: true,
+      googlePaymentRequest: BraintreeGooglePaymentRequest(
+        totalPrice: "$totalPrice",
+        currencyCode: 'IDR',
+        billingAddressRequired: false,
+      ),
+    );
+
+    BraintreeDropInResult? result = await BraintreeDropIn.start(request);
+    if (result != null) {
+      // EasyLoading.showSuccess("Successfully buy, lanjut simpan pesannan ke API dengan status PAID @rani");
+
+      var dataLogin = await UserService.find.getLocalUser();
+      DataPesanan data = DataPesanan(
+        usersPermissionsUser: '${dataLogin?.id}',
+        products: productIdsAsString,
+        status: "paid",
+        dueDate: startDateController.text,
+        endDate: endDateController.text,
+        notes: notesController.text,
+      );
+
+      ModelPesanan pesanan = ModelPesanan(data: data);
+      var createPesanan = await ApiServices.postTransaction(modelCard: pesanan);
+      if (createPesanan == true) {
+        EasyLoading.showSuccess("Successfully buy");
+        startDateController.text = '';
+        endDateController.text = '';
+        notesController.text = '';
+        isButtonClicked = false;
+
+        Get.toNamed(Routes.HOME);
+      } else {
+        EasyLoading.showError("Failed to buy");
+        startDateController.text = '';
+        endDateController.text = '';
+        notesController.text = '';
+        isButtonClicked = false;
+      }
+    } else {
+      EasyLoading.showError("Failed to buy");
+      startDateController.text = '';
+      endDateController.text = '';
+      notesController.text = '';
+      isButtonClicked = false;
+    }
+    // var dataLogin = await UserService.find.getLocalUser();
+    // DataPesanan data = DataPesanan(
+    //   usersPermissionsUser: '${dataLogin?.id}',
+    //   products: productIdsAsString,
+    //   status: "unpaid",
+    //   dueDate: startDateController.text,
+    //   endDate: endDateController.text,
+    //   notes: notesController.text,
     // );
 
-    // BraintreeDropInResult? result = await BraintreeDropIn.start(request);
-    // if (result != null) {
-    //   // EasyLoading.showSuccess("Successfully buy, lanjut simpan pesannan ke API dengan status PAID @rani");
-
-    //   var dataLogin = await UserService.find.getLocalUser();
-    //   DataPesanan data = DataPesanan(
-    //     usersPermissionsUser: '${dataLogin?.id}',
-    //     products: productIdsAsString,
-    //     status: "paid",
-    //     dueDate: startDateController.text,
-    //     endDate: endDateController.text,
-    //     notes: notesController.text,
-    //   );
-
-    //   ModelPesanan pesanan = ModelPesanan(data: data);
-    //   var createPesanan = await ApiServices.postTransaction(modelCard: pesanan);
-    //   if (createPesanan == true) {
-    //     EasyLoading.showSuccess("Successfully buy");
-    //   } else {
-    //     EasyLoading.showError("Failed to buy");
-    //   }
-    // } else {
-    //   EasyLoading.showError("Failed to buy");
+    // ModelPesanan pesanan = ModelPesanan(data: data);
+    // var createPesanan = await ApiServices.postTransaction(modelCard: pesanan);
+    // if (createPesanan == true) {
+    //   EasyLoading.showSuccess("Berhasil Pesan");
+    //   Get.toNamed(Routes.HOME);
     // }
   }
 

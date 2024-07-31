@@ -49,13 +49,13 @@ class HomeView extends GetView<HomeController> {
                     errorBuilder: (context, error, stackTrace) {
                       return const Icon(
                         Icons.person,
-                        size: 20,
+                        size: 50,
                         color: Colors.grey,
                       );
                     },
                   ),
                 ),
-              ).marginOnly(right: 20).marginSymmetric(horizontal: 20),
+              ).marginOnly(right: 20),
             );
           }),
         ],
@@ -88,7 +88,7 @@ class HomeView extends GetView<HomeController> {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.0),
                 child: Text(
-                  'Good morning,',
+                  'Have a good day,',
                   style: TextStyle(
                     fontFamily: 'Sathoshi',
                   ),
@@ -156,9 +156,11 @@ class HomeView extends GetView<HomeController> {
                                                 ? "assets/images/team.png"
                                                 : controller.allCategory?.data?[index].attributes?.name == 'Cultural'
                                                     ? "assets/images/cultural.png"
-                                                    : controller.allCategory?.data?[index].attributes?.name == 'Cultural'
+                                                    : controller.allCategory?.data?[index].attributes?.name == 'Charity'
                                                         ? "assets/images/solidarity.png"
-                                                        : "assets/images/sports.png")),
+                                                        : controller.allCategory?.data?[index].attributes?.name == 'Wedding'
+                                                            ? "assets/images/wedding.png"
+                                                            : "assets/images/sports.png")),
                                     const SizedBox(height: 4),
                                     Text(controller.allCategory?.data?[index].attributes?.name ?? '', textAlign: TextAlign.center)
                                   ],
@@ -166,7 +168,33 @@ class HomeView extends GetView<HomeController> {
                               )),
                     ).paddingAll(20)
                   : const SizedBox.shrink(),
-              const DiscountBanner(),
+              Container(
+                width: double.infinity,
+                margin: const EdgeInsets.all(20),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 16,
+                ),
+                decoration: BoxDecoration(
+                  color: AppColors.blue,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Text.rich(
+                  TextSpan(
+                    style: TextStyle(color: Colors.white),
+                    children: [
+                      TextSpan(text: "${controller.promotion?.data?.first.attributes?.title}\n"),
+                      TextSpan(
+                        text: "${controller.promotion?.data?.first.attributes?.description}",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               // PopularProducts(),
 
               // PopularProducts(),

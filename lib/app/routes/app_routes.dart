@@ -13,6 +13,7 @@ abstract class Routes {
   static const RESET_PASSWORD = _Paths.RESET_PASSWORD;
   static const CHECKOUT_PAGE = _Paths.CHECKOUT_PAGE;
   static const KERANJANG_PAGE = _Paths.KERANJANG_PAGE;
+  static const sepeda = _Paths.sepeda;
 }
 
 abstract class _Paths {
@@ -27,4 +28,5 @@ abstract class _Paths {
   static const RESET_PASSWORD = '/reset-password';
   static const CHECKOUT_PAGE = '/checkout-page';
   static const KERANJANG_PAGE = '/keranjang-page';
+  static const sepeda = '/sepeda-page';
 }

@@ -1,3 +1,5 @@
+import 'package:event_digital/app/modules/sepeda-page/bindings/sepeda_binding.dart';
+import 'package:event_digital/app/modules/sepeda-page/views/sepeda_view.dart';
 import 'package:get/get.dart';
 
 import '../modules/checkout-page/bindings/checkout_page_binding.dart';
@@ -78,6 +80,11 @@ class AppPages {
       name: _Paths.KERANJANG_PAGE,
       page: () => const KeranjangPageView(),
       binding: KeranjangPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.sepeda,
+      page: () => const SepedaView(),
+      binding: SepedaBinding(),
     ),
   ];
 }

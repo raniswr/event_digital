@@ -206,7 +206,7 @@ class CheckoutPageView extends GetView<CheckoutPageController> {
                   ).marginSymmetric(horizontal: 20).marginOnly(top: 10, bottom: 20),
                   CheckboxListTile(
                     title: Text(
-                      'Dengan menekan tombol "Bayar", Anda mengonfirmasi pembelian barang di atas dan memahami bahwa pesanan Anda tidak dapat dibatalkan.',
+                      'Dengan menekan tombol "Bayar", Anda mengonfirmasi pemesanan event di atas dan memahami bahwa pesanan Anda tidak dapat dibatalkan.',
                       style: AppStyle.styleTextBody12(colorText: AppColors.greyTextLight),
                     ),
                     side: const BorderSide(color: AppColors.gray),

@@ -1,4 +1,5 @@
 import 'package:event_digital/app/data/storage_name.dart';
+import 'package:event_digital/app/modules/home/controllers/home_controller.dart';
 import 'package:event_digital/app/modules/profilePage/views/components/profile_menu.dart';
 import 'package:event_digital/app/modules/profilePage/views/components/profile_pic.dart';
 import 'package:event_digital/app/routes/app_pages.dart';
@@ -18,6 +19,14 @@ class ProfilePageView extends GetView<ProfilePageController> {
           title: Text(
             "Profile",
             style: AppStyle.styleTextBody16(fontWeight: FontWeight.bold),
+          ),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Get.back();
+              var getPage = Get.find<HomeController>();
+              getPage.getProfile();
+            },
           ),
         ),
         body: SingleChildScrollView(
@@ -42,11 +51,7 @@ class ProfilePageView extends GetView<ProfilePageController> {
                   Get.toNamed(Routes.EDIT_PROFILE),
                 },
               ),
-              // ProfileMenu(
-              //   text: "Notifications",
-              //   icon: "assets/icons/Bell.svg",
-              //   press: () {},
-              // ),
+
               ProfileMenu(
                 text: "Reset Password",
                 icon: "assets/icons/Settings.svg",
@@ -71,20 +76,19 @@ class ProfilePageView extends GetView<ProfilePageController> {
                 },
               ),
 
-              ProfileMenu(
-                text: "Delete Account",
-                icon: "assets/icons/Close.svg",
-                press: () async {
-                  controller.deleteAkun();
-                },
-              ),
+              // ProfileMenu(
+              //   text: "Delete Account",
+              //   icon: "assets/icons/Close.svg",
+              //   press: () async {
+              //     controller.deleteAkun();
+              //   },
+              // ),
 
               // ProfileMenu(
               //   text: "Master Sepeda",
               //   icon: "assets/icons/User Icon.svg",
-
               //   press: () => {
-              //     // Get.toNamed(Routes),
+              //     Get.toNamed(Routes.sepeda),
               //   },
               // ),
             ],

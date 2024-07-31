@@ -1,5 +1,6 @@
 import 'package:event_digital/app/data/model/model_category.dart';
 import 'package:event_digital/app/data/model/model_product.dart';
+import 'package:event_digital/app/data/model/model_promotion.dart';
 import 'package:event_digital/app/data/model/model_user.dart';
 import 'package:event_digital/app/data/services/api_services.dart';
 import 'package:event_digital/app/data/services/user_services.dart';
@@ -12,6 +13,7 @@ import 'package:intl/intl.dart';
 class HomeController extends GetxController {
   String? selectedCategory;
   ModelProfile? profile;
+  ModelPromotion? promotion;
 
   void setCategory(String name) {
     selectedCategory = name;
@@ -22,6 +24,11 @@ class HomeController extends GetxController {
   getProfile() async {
     ModelUser? user = UserService.find.user;
     profile = await ApiServices().getProfile(user?.id);
+    update();
+  }
+
+  getPromotion() async {
+    promotion = await ApiServices().getPromotion();
     update();
   }
 
@@ -101,7 +108,7 @@ class HomeController extends GetxController {
     getAllProduct();
     getCategory();
     getProfile();
-
+    getPromotion();
     var dataLogin = await UserService.find.getLocalUser();
 
     print('hai ${dataLogin?.isLogin}');

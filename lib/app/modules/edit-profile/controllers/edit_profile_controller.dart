@@ -1,7 +1,9 @@
 import 'package:event_digital/app/data/model/model_profile.dart';
 import 'package:event_digital/app/data/services/api_services.dart';
 import 'package:event_digital/app/data/services/user_services.dart';
+import 'package:event_digital/app/modules/profilePage/controllers/profile_page_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 class EditProfileController extends GetxController {
@@ -34,6 +36,12 @@ class EditProfileController extends GetxController {
       address: alamatController.text,
       username: namaController.text,
     );
+    if (data != null) {
+      EasyLoading.showSuccess('Berhasil Edit');
+      Get.back();
+      var getPage = Get.find<ProfilePageController>();
+      getPage.getProfile();
+    }
   }
 
   @override

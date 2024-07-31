@@ -8,6 +8,8 @@ import 'package:event_digital/app/data/model/model_login.dart';
 import 'package:event_digital/app/data/model/model_pesanan.dart';
 import 'package:event_digital/app/data/model/model_product.dart';
 import 'package:event_digital/app/data/model/model_profile.dart';
+import 'package:event_digital/app/data/model/model_promotion.dart';
+import 'package:event_digital/app/data/model/model_sepeda.dart';
 import 'package:event_digital/config/api_client.dart';
 import 'package:event_digital/config/api_interface.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -28,6 +30,7 @@ class ApiServices {
       EasyLoading.dismiss();
     } on DioException catch (_) {
       EasyLoading.dismiss();
+      EasyLoading.showError('Gagal Login');
 
       return null;
     }
@@ -39,6 +42,7 @@ class ApiServices {
     } else {
       var modelAuth = ModelLogin.fromJson(result.data);
       EasyLoading.dismiss();
+      EasyLoading.showError('Gagal Login');
       // EasyLoading.showError(modelAuth.)
       return null;
     }
@@ -191,6 +195,26 @@ class ApiServices {
 
       if (response.statusCode == 200) {
         var modelProfile = ModelProfile.fromJson(response.data);
+
+        return modelProfile;
+      } else {
+        return null;
+      }
+    } catch (e) {
+      // log(e);
+      return null;
+    }
+  }
+
+  Future<ModelPromotion?> getPromotion() async {
+    Dio dio = ApiInterfaceToken.instance.api;
+    String url = 'promotions';
+
+    try {
+      Response response = await dio.get(url);
+
+      if (response.statusCode == 200) {
+        var modelProfile = ModelPromotion.fromJson(response.data);
 
         return modelProfile;
       } else {
@@ -383,6 +407,32 @@ class ApiServices {
       EasyLoading.dismiss();
       EasyLoading.showError('Gagal Mengubah Password');
 
+      return false;
+    }
+  }
+
+  static Future<bool?> postSepeda({required ModelSepeda modelCard}) async {
+    Dio dio = ApiInterfaceToken.instance.api;
+    String url = 'master-sepedas';
+    Response? result;
+
+    EasyLoading.show(
+      maskType: EasyLoadingMaskType.black,
+    );
+    try {
+      result = await dio.post(url, data: modelCard.toJson());
+    } on DioException catch (e) {
+      EasyLoading.showError('Gagal');
+      return false;
+    }
+    if (result.statusCode == 200 || result.statusCode == 201) {
+      EasyLoading.dismiss();
+
+      return true;
+    } else {
+      EasyLoading.dismiss();
+      var modelAuth = ModelPesanan.fromJson(result.data);
+      // EasyLoading.showError(modelAuth.message.toString());
       return false;
     }
   }

@@ -86,26 +86,26 @@ class KeranjangPageView extends GetView<KeranjangPageController> {
                               ),
                             ],
                           ).marginOnly(right: 5),
-                          GestureDetector(
-                            onTap: () {
-                              controller.carts.isEmpty ? const SizedBox.shrink() : EasyLoading.showInfo('Harap pilih produk!');
-                            },
-                            child: Container(
-                              height: 38,
-                              width: 87,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(18),
-                                border: Border.all(color: AppColors.blue, width: 1),
-                                color: AppColors.blueSoft,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'Hapus',
-                                  style: AppStyle.styleTextBody16(colorText: AppColors.blue, fontWeight: FontWeight.w700),
-                                ),
-                              ),
-                            ),
-                          ).marginSymmetric(horizontal: 10),
+                          // GestureDetector(
+                          //   onTap: () {
+                          //     controller.carts.isEmpty ? const SizedBox.shrink() : EasyLoading.showInfo('Harap pilih produk!');
+                          //   },
+                          //   child: Container(
+                          //     height: 38,
+                          //     width: 87,
+                          //     decoration: BoxDecoration(
+                          //       borderRadius: BorderRadius.circular(18),
+                          //       border: Border.all(color: AppColors.blue, width: 1),
+                          //       color: AppColors.blueSoft,
+                          //     ),
+                          //     child: Center(
+                          //       child: Text(
+                          //         'Hapus',
+                          //         style: AppStyle.styleTextBody16(colorText: AppColors.blue, fontWeight: FontWeight.w700),
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ).marginSymmetric(horizontal: 10),
                         ],
                       ).marginSymmetric(horizontal: 15),
                       GetBuilder<KeranjangPageController>(
